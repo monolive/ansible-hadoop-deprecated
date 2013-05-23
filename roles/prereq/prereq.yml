@@ -1,0 +1,41 @@
+---
+- hosts: hdp2
+  vars:
+     dns_server : 10.179.0.164
+     dns_search : hdp2.cloud
+     ntp_server : 10.179.0.164
+  user: root
+  tasks :
+  - name: Disable SELinux in conf file
+    lineinfile: dest=/etc/sysconfig/selinux regexp='^SELINUX=' line='SELINUX=disabled' state=present
+  - name: Disabel selinux dynamically
+    shell: creates=/etc/sysconfig/selinux.disabled setenforce 0 ; touch /etc/sysconfig/selinux.disabled
+  - name : configure resolv.conf
+    action: template src=templates/resolv.conf.j2 dest=/etc/resolv.conf
+  - name : install ntp
+    action: yum name=ntp state=latest
+  - name : configure ntp
+    action: template src=templates/ntp.conf.j2 dest=/etc/ntp.conf
+    notify : restart ntp
+  - name : start ntp
+    service: name=ntpd state=started enabled=true
+  - name : configure DNS
+    action: template src=templates/reconfigure_dns.sh.j2 dest=/tmp/reconfigure_dns.sh mode=0755
+    notify : configure DNS
+  - name : restart network
+    action: shell /tmp/reconfigure_dns.sh
+    ignore_errors: True
+    notify : restart network
+  - name : copy jdk
+    action : copy src=files/jdk-6u31-linux-amd64.rpm dest=/tmp/jdk-6u31-linux-amd64.rpm mode=0644 force=no
+  - name : install jdk
+    action : shell yum localinstall -y /tmp/jdk-6u31-linux-amd64.rpm
+  - name : Add JAVA_HOME to user profile
+    action : copy src=files/java.sh dest=/etc/profile.d/java.sh 
+
+  handlers:
+  - name : restart ntp
+    service: name=ntpd state=restarted 
+  - name : restart network
+    service: name=network state=restarted 
+
