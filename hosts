@@ -4,7 +4,7 @@ node1.hdp2.cloud
 [secondary_namenode]
 node2.hdp2.cloud
 
-[nodemanager]
+[resourcemanager]
 node3.hdp2.cloud
 
 [datanodes]

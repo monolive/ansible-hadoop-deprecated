@@ -14,10 +14,10 @@
   roles:
   - secondary_namenode
 
-- hosts: nodemanager
+- hosts: resourcemanager
   user : root
   roles:
-  - nodemanager
+  - resourcemanager
 
 - hosts: datanodes
   user : root

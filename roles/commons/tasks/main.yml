@@ -19,3 +19,12 @@
   - name : create pid direcotory for YARN
     file : path={{ item }} state=directory owner={{ hadoop.YARN_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
     with_items : hadoop.YARN_PID_DIR
+  - name : copy core-site.xml
+    action : template src=core-site.xml.j2 dest=/etc/hadoop/conf/core-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
+  - name : copy hdfs-site.xml
+    action : template src=hdfs-site.xml.j2 dest=/etc/hadoop/conf/hdfs-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
+  - name : copy yarn-site.xml
+    action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
+  - name : change permission on /etc/hadoop/conf
+    file : path=/etc/hadoop/conf owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} recurse=true mode=0755
+
