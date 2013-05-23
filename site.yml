@@ -14,3 +14,13 @@
   roles:
   - secondary_namenode
 
+- hosts: nodemanager
+  user : root
+  roles:
+  - nodemanager
+
+- hosts: datanodes
+  user : root
+  roles:
+  - datanodes
+
