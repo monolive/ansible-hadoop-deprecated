@@ -1,0 +1,4 @@
+---
+# Playbook for Hadoop namenode
+
+- include: namenode.yml

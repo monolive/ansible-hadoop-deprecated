@@ -1,0 +1,11 @@
+#- hosts: all
+#  user : root
+#  roles:
+#   - commons
+#   - prereq
+
+- hosts: namenode
+  user : root
+  roles:
+  - namenode
+

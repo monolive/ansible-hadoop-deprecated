@@ -1,9 +1,0 @@
----
-# Playbook for Hadoop Namenode
-- hosts : namenode
-  user : root
-  vars_files:
-    - ../../var/all.txt
-  tasks:
-    - name: Create Directory 
-      file : path={{ hadoop_dir.DFS_NAME_DIR }} state=directory owner={{ hadoop_user.HDFS_USER }} group={{ hadoop_user.HADOOP_GROUP }} mode=0755

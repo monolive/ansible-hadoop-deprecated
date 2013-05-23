@@ -1,0 +1,4 @@
+--- 
+# Install pre-req for Rackspace CentOS 6 instance
+
+  - include : prereq.yml 

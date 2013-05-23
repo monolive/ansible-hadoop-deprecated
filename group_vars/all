@@ -1,4 +1,5 @@
-hadoop_dir  : 
+---
+hadoop: 
       #
       # Hadoop Service - HDFS
       #
@@ -124,7 +125,6 @@ hadoop_dir  :
       #
       SQOOP_CONF_DIR : /usr/lib/sqoop/conf 
 
-hadoop_user :
       #
       # Users and Groups
       #
