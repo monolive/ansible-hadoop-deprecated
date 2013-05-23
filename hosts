@@ -7,7 +7,7 @@ node2.hdp2.cloud
 [nodemanager]
 node3.hdp2.cloud
 
-[datanode]
+[datanodes]
 node4.hdp2.cloud
 node5.hdp2.cloud
 node6.hdp2.cloud
