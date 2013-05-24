@@ -2,6 +2,7 @@
   user : root
   roles:
    - commons
+   - epel
 #   - prereq
 
 - hosts: namenode
