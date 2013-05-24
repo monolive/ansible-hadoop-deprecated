@@ -26,3 +26,5 @@
     action : shell yum localinstall -y /tmp/jdk-6u31-linux-amd64.rpm
   - name : Add JAVA_HOME to user profile
     action : copy src=files/java.sh dest=/etc/profile.d/java.sh 
+  - name : install mosh
+    action: yum name=mosh state=latest
