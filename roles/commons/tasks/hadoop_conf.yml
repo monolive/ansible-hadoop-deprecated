@@ -4,13 +4,13 @@
   - name : change permission on /etc/hadoop/conf
     file : path=/etc/hadoop/conf owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy core-site.xml
-    action : template src=core-site.xml.j2 dest=/etc/hadoop/conf/core-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
+    action : template src=core-site.xml.j2 dest=/etc/hadoop/conf/core-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy hdfs-site.xml
-    action : template src=hdfs-site.xml.j2 dest=/etc/hadoop/conf/hdfs-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
+    action : template src=hdfs-site.xml.j2 dest=/etc/hadoop/conf/hdfs-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy yarn-site.xml
-    action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
+    action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy capacity-scheduler.xml
-    action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
+    action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy capacity-scheduler.xml
     action : copy src=hadoop_conf/capacity-scheduler.xml dest=/etc/hadoop/conf/capacity-scheduler.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy commons-logging.properties
@@ -25,8 +25,6 @@
     action : copy src=hadoop_conf/hadoop-metrics2.properties-GANGLIA dest=/etc/hadoop/conf/hadoop-metrics2.properties-GANGLIA owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy hadoop-policy.xml
     action : copy src=hadoop_conf/hadoop-policy.xml dest=/etc/hadoop/conf/hadoop-policy.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
-  - name : copy hdfs-site.xml
-    action : copy src=hadoop_conf/hdfs-site.xml dest=/etc/hadoop/conf/hdfs-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy health_check
     action : copy src=hadoop_conf/health_check dest=/etc/hadoop/conf/health_check owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy log4j.properties
