@@ -1,5 +1,5 @@
 #!/bin/bash
-sed -i s/83.138.151.81/{{ dns_server }}/g /etc/sysconfig/network-scripts/ifcfg-eth0
+sed -i s/83.138.151.81/{{ network['dns_server'] }}/g /etc/sysconfig/network-scripts/ifcfg-eth0
 sed -i s/DNS2.*$//g /etc/sysconfig/network-scripts/ifcfg-eth0
-sed -i s/83.138.151.81/{{ dns_server }}/g /etc/sysconfig/network-scripts/ifcfg-eth1
+sed -i s/83.138.151.81/{{ network['dns_server'] }}/g /etc/sysconfig/network-scripts/ifcfg-eth1
 sed -i s/DNS2.*$//g /etc/sysconfig/network-scripts/ifcfg-eth1
