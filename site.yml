@@ -1,9 +1,9 @@
 - hosts: all
   user : root
   roles:
-   - commons
    - epel-repo
-#   - prereq
+   - prereq
+   - commons
 
 - hosts: namenode
   user : root
