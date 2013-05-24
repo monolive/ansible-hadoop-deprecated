@@ -5,16 +5,16 @@
   - name: Disabel selinux dynamically
     shell: creates=/etc/sysconfig/selinux.disabled setenforce 0 ; touch /etc/sysconfig/selinux.disabled
   - name : configure resolv.conf
-    action: template src=templates/resolv.conf.j2 dest=/etc/resolv.conf
+    action: template src=resolv.conf.j2 dest=/etc/resolv.conf
   - name : install ntp
     action: yum name=ntp state=latest
   - name : configure ntp
-    action: template src=templates/ntp.conf.j2 dest=/etc/ntp.conf
+    action: template src=ntp.conf.j2 dest=/etc/ntp.conf
     notify : restart ntp
   - name : start ntp
     service: name=ntpd state=started enabled=true
   - name : configure DNS
-    action: template src=templates/reconfigure_dns.sh.j2 dest=/tmp/reconfigure_dns.sh mode=0755
+    action: template src=reconfigure_dns.sh.j2 dest=/tmp/reconfigure_dns.sh mode=0755
     notify : configure DNS
   - name : restart network
     action: shell /tmp/reconfigure_dns.sh
