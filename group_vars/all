@@ -1,4 +1,9 @@
 ---
+network:
+      ntp_server : 10.179.0.164
+      dns_server : 10.179.0.164
+      dns_search : hdp2.cloud
+
 hadoop: 
       #
       # Hadoop Service - HDFS
