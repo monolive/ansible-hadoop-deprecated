@@ -1,0 +1,7 @@
+---
+  - name : Copy epel
+    action : copy src=epel.repo dest=/etc/yum.repos.d/epel.repo owner=root group=root mode=0644 force=no
+  - name : Copy epel-testing
+    action : copy src=epel-testing.repo dest=/etc/yum.repos.d/epel-testing.repo owner=root group=root mode=0644 force=no
+  - name : Copy epel-gpg-key
+    action : copy src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6 owner=root group=root mode=0644 force=no
