@@ -21,8 +21,6 @@
     with_items : hadoop.YARN_PID_DIR
   - name : remove link /etc/hadoop/conf
     file : path=/etc/hadoop/conf state=absent
-  - name : copy /etc/hadoop/conf
-    local_action : command rsync -avz conf/ {{ insventory_hostname }}:/etc/hadoop/conf  
   - name : copy core-site.xml
     action : template src=core-site.xml.j2 dest=/etc/hadoop/conf/core-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }}
   - name : copy hdfs-site.xml
