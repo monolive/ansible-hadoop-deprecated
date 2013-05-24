@@ -4,6 +4,8 @@
     lineinfile: dest=/etc/sysconfig/selinux regexp='^SELINUX=' line='SELINUX=disabled' state=present
   - name: Disabel selinux dynamically
     shell: creates=/etc/sysconfig/selinux.disabled setenforce 0 ; touch /etc/sysconfig/selinux.disabled
+  - name : turn off iptables
+    service : name=iptables state=stopped enabled=false
   - name : configure resolv.conf
     action: template src=resolv.conf.j2 dest=/etc/resolv.conf
   - name : install ntp
