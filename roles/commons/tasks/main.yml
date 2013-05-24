@@ -1,21 +1,7 @@
----
-  - name : Copy HDP repo
-    action: copy src=hdp-release-2.0.0.2-1.el6.noarch.rpm dest=/tmp/hdp-release-2.0.0.2-1.el6.noarch.rpm
-  - name : install HDP repo
-    action: shell yum localinstall -y /tmp/hdp-release-2.0.0.2-1.el6.noarch.rpm creates=/etc/yum.repos.d/hdp.repo
-  - name : install hadoop
-    action: yum name=hadoop,hadoop-hdfs,hadoop-libhdfs,hadoop-yarn,hadoop-mapreduce,hadoop-client,openssl state=latest
-  - name : install compression library
-    action: yum name=snappy,snappy-devel,lzo,lzo-devel,hadoop-lzo,hadoop-lzo-native state=latest
-  - name : create log direcotory for HDFS
-    file : path={{ item }} state=directory owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
-    with_items : hadoop.HDFS_LOG_DIR
-  - name : create log direcotory for YARN
-    file : path={{ item }} state=directory owner={{ hadoop.YARN_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
-    with_items : hadoop.YARN_LOG_DIR
-  - name : create pid direcotory for HDFS
-    file : path={{ item }} state=directory owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
-    with_items : hadoop.HDFS_PID_DIR
-  - name : create pid direcotory for YARN
-    file : path={{ item }} state=directory owner={{ hadoop.YARN_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
-    with_items : hadoop.YARN_PID_DIR
+--- 
+# Configure HDP repo
+  - include : hdp-repo.yml 
+# Install hadoop
+  - include : hadoop.yml 
+# Copy hadoop configuration files
+  - include : hadoop_conf.yml
