@@ -1,0 +1,21 @@
+- hosts: namenode
+  user : root
+  sudo : yes
+  sudo_user : hdfs
+  roles:
+  - namenode
+
+#- hosts: secondary_namenode
+#  user : root
+#  roles:
+#  - secondary_namenode
+
+#- hosts: resourcemanager
+#  user : root
+#  roles:
+#  - resourcemanager
+
+#- hosts: datanodes
+#  user : root
+#  roles:
+#  - datanodes

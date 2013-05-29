@@ -1,0 +1,4 @@
+---
+  - name : format namenode
+    shell : hadoop namenode -format -nonInteractive || true
+     
