@@ -39,7 +39,7 @@ hadoop:
          - /hadoop/yarn/ 
       
       # Directory to store the YARN logs.
-      YARN_LOG_DIR : /var/log/yarn  
+      YARN_LOG_DIR : /var/log/hadoop/yarn  
       
       # Directory to store the YARN process ID.
       YARN_PID_DIR : /var/run/hadoop/yarn 
