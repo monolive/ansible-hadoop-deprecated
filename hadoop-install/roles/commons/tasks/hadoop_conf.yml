@@ -9,8 +9,8 @@
     action : template src=hdfs-site.xml.j2 dest=/etc/hadoop/conf/hdfs-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy yarn-site.xml
     action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
-  - name : copy capacity-scheduler.xml
-    action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
+  - name : copy mapred-site.xml
+    action : template src=mapred-site.xml.j2 dest=/etc/hadoop/conf/mapred-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy capacity-scheduler.xml
     action : copy src=hadoop_conf/capacity-scheduler.xml dest=/etc/hadoop/conf/capacity-scheduler.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy commons-logging.properties
@@ -33,3 +33,5 @@
     action : copy src=hadoop_conf/log4j.properties dest=/etc/hadoop/conf/log4j.properties owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy yarn-env.sh
     action : copy src=hadoop_conf/yarn-env.sh dest=/etc/hadoop/conf/yarn-env.sh owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
+  - name : copy mapred-site.xml
+    action : copy src=hadoop_conf/mapred-site.xml dest=/etc/hadoop/conf/mapred-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755

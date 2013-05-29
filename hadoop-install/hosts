@@ -7,8 +7,10 @@ node2.hdp2.cloud
 [resourcemanager]
 node3.hdp2.cloud
 
-[datanodes]
+[jobtracker]
 node4.hdp2.cloud
+
+[datanodes]
 node5.hdp2.cloud
 node6.hdp2.cloud
 node7.hdp2.cloud
