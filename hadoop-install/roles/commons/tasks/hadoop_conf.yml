@@ -1,8 +1,8 @@
 ---
   - name : remove link /etc/hadoop/conf
-    file : path=/etc/hadoop/conf state=absent
-#  - name : change permission on /etc/hadoop/conf
-#    file : path=/etc/hadoop/conf owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
+    shell : if [  -L /etc/hadoop/conf/ ]; then  unlink /etc/hadoop/conf/ ; fi
+  - name : Creates /etc/hadoop/conf
+    file : path=/etc/hadoop/conf owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 state=directory
   - name : copy core-site.xml
     action : template src=core-site.xml.j2 dest=/etc/hadoop/conf/core-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy hdfs-site.xml
