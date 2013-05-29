@@ -25,7 +25,7 @@ source /etc/rc.d/init.d/functions
 source /etc/hadoop/conf/hadoop-env.sh
 
 RETVAL=0
-PIDFILE="{{ hadoop['HADOOP_PID_DIR'] }}/hdfs/hadoop-hdfs-namenode.pid"
+PIDFILE="{{ hadoop['HDFS_PID_DIR'] }}/hadoop-hdfs-namenode.pid"
 desc="Hadoop namenode daemon"
 export HADOOP_PREFIX="/usr/lib/hadoop"
 
