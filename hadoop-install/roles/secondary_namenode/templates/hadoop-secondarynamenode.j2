@@ -31,7 +31,7 @@ export HADOOP_PREFIX="/usr/lib/hadoop"
 
 start() {
   echo -n $"Starting $desc (hadoop-secondarynamenode): "
-  daemon --user hdfs ${HADOOP_PREFIX}/bin/hadoop-daemon.sh --config "{{ hadoop['HADOOP_CONF_DIR'] }}" start secondarynamenode $1
+  daemon --user hdfs ${HADOOP_PREFIX}/sbin/hadoop-daemon.sh --config "{{ hadoop['HADOOP_CONF_DIR'] }}" start secondarynamenode $1
   RETVAL=$?
   echo
   [ $RETVAL -eq 0 ] && touch /var/lock/subsys/hadoop-secondarynamenode
@@ -44,7 +44,7 @@ upgrade() {
 
 stop() {
   echo -n $"Stopping $desc (hadoop-secondarynamenode): "
-  daemon --user hdfs ${HADOOP_PREFIX}/bin/hadoop-daemon.sh --config "{{ hadoop['HADOOP_CONF_DIR'] }}" stop secondarynamenode
+  daemon --user hdfs ${HADOOP_PREFIX}/sbin/hadoop-daemon.sh --config "{{ hadoop['HADOOP_CONF_DIR'] }}" stop secondarynamenode
   RETVAL=$?
   sleep 5
   echo
