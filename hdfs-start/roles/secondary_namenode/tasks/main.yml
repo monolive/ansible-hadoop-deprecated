@@ -1,3 +1,3 @@
 ---
   - name : start secondary namenode
-    service : name=hadoop-secondarynamenode state=started enabled=yes
+    shell : su - hdfs -c "/usr/lib/hadoop/sbin/hadoop-daemon.sh --config /etc/hadoop/conf start secondarynamenode
