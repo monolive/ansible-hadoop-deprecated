@@ -1,4 +1,5 @@
 ---
   - name : format namenode
-    shell : hadoop namenode -format -nonInteractive || true
-     
+    shell : hadoop namenode -format; touch /usr/lib/hadoop/namenode.formatted creates=/usr/lib/hadoop/namenode.formatted
+  - name : start namenode
+    shell : /usr/lib/hadoop/sbin/hadoop-daemon.sh --config /etc/hadoop/conf/ start namenode
