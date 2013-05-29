@@ -2,4 +2,4 @@
   - name : format namenode
     shell : su - hdfs -c "hadoop namenode -format; touch /var/lib/hadoop-hdfs/namenode.formatted" creates=/var/lib/hadoop-hdfs/namenode.formatted
   - name : start namenode
-    service : name=hadoop-namenode state=started
+    service : name=hadoop-namenode state=started enabled=yes
