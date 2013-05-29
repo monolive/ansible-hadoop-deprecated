@@ -33,5 +33,3 @@
     action : copy src=hadoop_conf/log4j.properties dest=/etc/hadoop/conf/log4j.properties owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy yarn-env.sh
     action : copy src=hadoop_conf/yarn-env.sh dest=/etc/hadoop/conf/yarn-env.sh owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
-  - name : copy mapred-site.xml
-    action : copy src=hadoop_conf/mapred-site.xml dest=/etc/hadoop/conf/mapred-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
