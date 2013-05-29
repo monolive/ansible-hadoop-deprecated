@@ -60,11 +60,6 @@ restart() {
   start
 }
 
-checkstatus(){
-  echo $"$desc $(status -p $PIDFILE)"
-  RETVAL=$?
-}
-
 condrestart(){
   [ -e /var/lock/subsys/hadoop-datanode ] && restart || :
 }
@@ -77,7 +72,8 @@ case "$1" in
     stop
     ;;
   status)
-    checkstatus
+    status -p $PIDFILE "$desc"
+    RETVAL=$?
     ;;
   restart)
     restart
