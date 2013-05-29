@@ -1,0 +1,3 @@
+---
+  - name : start datanodes
+    shell : su - yarn -c "/usr/lib/hadoop-yarn/sbin/yarn-daemon.sh --config /etc/hadoop/conf start nodemanager"

@@ -1,0 +1,17 @@
+[namenode]
+node1.hdp2.cloud
+
+[secondary_namenode]
+node2.hdp2.cloud
+
+[resourcemanager]
+node3.hdp2.cloud
+
+[datanodes]
+node4.hdp2.cloud
+node5.hdp2.cloud
+node6.hdp2.cloud
+node7.hdp2.cloud
+node8.hdp2.cloud
+node9.hdp2.cloud
+node10.hdp2.cloud

@@ -1,0 +1,9 @@
+- hosts: resourcemanager
+  user : root
+  roles:
+  - resourcemanager
+
+- hosts: datanodes
+  user : root
+  roles:
+  - datanodes
