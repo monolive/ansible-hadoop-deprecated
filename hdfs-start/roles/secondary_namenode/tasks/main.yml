@@ -1,0 +1,3 @@
+---
+  - name : start secondary namenode
+    service : name=hadoop-secondarynamenode state=started enabled=yes

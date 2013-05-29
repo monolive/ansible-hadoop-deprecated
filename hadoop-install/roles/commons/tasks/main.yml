@@ -1,7 +1,7 @@
 --- 
-# Configure HDP repo
+ # Configure HDP repo
   - include : hdp-repo.yml 
-# Install hadoop
+ # Install hadoop
   - include : hadoop.yml 
-# Copy hadoop configuration files
+ # Copy hadoop configuration files
   - include : hadoop_conf.yml
