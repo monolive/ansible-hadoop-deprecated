@@ -51,11 +51,6 @@ stop() {
   [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/hadoop-namenode $PIDFILE
 }
 
-checkstatus(){
-  echo $"$desc $(status -p $PIDFILE)"
-  RETVAL=$?
-}
-
 restart() {
   stop
   start
@@ -83,7 +78,8 @@ case "$1" in
     stop
     ;;
   status)
-    checkstatus
+    status -p $PIDFILE "$desc"
+    RETVAL=$?
     ;;
   restart)
     restart
