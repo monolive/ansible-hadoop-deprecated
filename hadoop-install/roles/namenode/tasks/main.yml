@@ -3,4 +3,4 @@
     file : path={{ item }} state=directory owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
     with_items : hadoop.DFS_NAME_DIR
   - name : Copy start up script
-    copy : src=hadoop-namenode dest=/etc/init.d/hadoop-namenode mode=0755 owner=root group=root
+    action : template src=hadoop-namenode.j2 dest=/etc/init.d/hadoop-namenode mode=0755 owner=root group=root
