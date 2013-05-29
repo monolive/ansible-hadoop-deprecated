@@ -1,7 +1,5 @@
 - hosts: namenode
   user : root
-  sudo : yes
-  sudo_user : hdfs
   roles:
   - namenode
 
