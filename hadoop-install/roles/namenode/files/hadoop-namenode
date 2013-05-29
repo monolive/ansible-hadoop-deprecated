@@ -31,7 +31,7 @@ export HADOOP_PREFIX="/usr/lib/hadoop"
 
 start() {
   echo -n $"Starting $desc (hadoop-namenode): "
-  daemon --user hdfs ${HADOOP_PREFIX}/bin/hadoop-daemon.sh --config "${HADOOP_CONF_DIR}" start namenode $1
+  daemon --user hdfs ${HADOOP_PREFIX}/sbin/hadoop-daemon.sh --config "${HADOOP_CONF_DIR}" start namenode $1
   RETVAL=$?
   echo
   [ $RETVAL -eq 0 ] && touch /var/lock/subsys/hadoop-namenode
@@ -44,7 +44,7 @@ upgrade() {
 
 stop() {
   echo -n $"Stopping $desc (hadoop-namenode): "
-  daemon --user hdfs ${HADOOP_PREFIX}/bin/hadoop-daemon.sh --config "${HADOOP_CONF_DIR}" stop namenode
+  daemon --user hdfs ${HADOOP_PREFIX}/sbin/hadoop-daemon.sh --config "${HADOOP_CONF_DIR}" stop namenode
   RETVAL=$?
   sleep 5
   echo
