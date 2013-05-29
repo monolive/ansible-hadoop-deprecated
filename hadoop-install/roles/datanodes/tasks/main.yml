@@ -1,7 +1,9 @@
 ---
-    - name: Create Datanodes Directory 
-      file : path={{ item }} state=directory owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0750 recurse=true
-      with_items : hadoop.DFS_DATA_DIR
-    - name: Create YARN Directory 
-      file : path={{ item }} state=directory owner={{ hadoop.YARN_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
-      with_items : hadoop.YARN_LOCAL_DIR
+  - name: Create Datanodes Directory 
+    file : path={{ item }} state=directory owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0750 recurse=true
+    with_items : hadoop.DFS_DATA_DIR
+  - name: Create YARN Directory 
+    file : path={{ item }} state=directory owner={{ hadoop.YARN_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
+    with_items : hadoop.YARN_LOCAL_DIR
+  - name : Copy start up datanode script
+    action : template src=hadoop-datanode.j2 dest=/etc/init.d/hadoop-datanode mode=0755 owner=root group=root
