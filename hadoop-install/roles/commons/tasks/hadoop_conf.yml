@@ -11,6 +11,8 @@
     action : template src=yarn-site.xml.j2 dest=/etc/hadoop/conf/yarn-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy mapred-site.xml
     action : template src=mapred-site.xml.j2 dest=/etc/hadoop/conf/mapred-site.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
+  - name : copy mapred-env.sh
+    action : template src=mapred-env.sh.j2 dest=/etc/profile.d/mapred-env.sh owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy capacity-scheduler.xml
     action : copy src=hadoop_conf/capacity-scheduler.xml dest=/etc/hadoop/conf/capacity-scheduler.xml owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy commons-logging.properties
