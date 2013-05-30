@@ -30,6 +30,12 @@ hadoop:
       # Directory to store the HDFS process ID.
       HDFS_PID_DIR : /var/run/hadoop/hdfs 
       
+      # Directory to store the HDFS logs.
+      MAPRED_LOG_DIR : /var/log/hadoop/mapred 
+      
+      # Directory to store the HDFS process ID.
+      MAPRED_PID_DIR : /var/run/hadoop/mapred 
+      
       #
       # Hadoop Service - YARN 
       #
