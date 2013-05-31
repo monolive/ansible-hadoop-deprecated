@@ -1,0 +1,14 @@
+- hosts: namenode
+  user : root
+  roles:
+  - namenode
+
+- hosts: secondary_namenode
+  user : root
+  roles:
+  - secondary_namenode
+
+- hosts: datanodes
+  user : root
+  roles:
+  - datanodes
