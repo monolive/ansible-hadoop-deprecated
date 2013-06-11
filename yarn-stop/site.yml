@@ -1,5 +1,7 @@
 - hosts: resourcemanager
   user : root
+  sudo : yes
+  sudo_user : yarn
   roles:
   - resourcemanager
 
