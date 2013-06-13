@@ -18,7 +18,7 @@
   - name : copy commons-logging.properties
     action : copy src=hadoop_conf/commons-logging.properties dest=/etc/hadoop/conf/commons-logging.properties owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy container-executor.cfg
-    action : copy src=hadoop_conf/container-executor.cfg dest=/etc/hadoop/conf/container-executor.cfg owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
+    action : template src=container-executor.cfg.j2 dest=/etc/hadoop/conf/container-executor.cfg owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy hadoop-env.sh
     action : copy src=hadoop_conf/hadoop-env.sh dest=/etc/hadoop/conf/hadoop-env.sh owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755
   - name : copy hadoop-env.sh in profile.d
