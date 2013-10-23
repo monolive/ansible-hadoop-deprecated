@@ -1,0 +1,4 @@
+- hosts: hdp2
+  user : root
+  roles:
+  - prereq
