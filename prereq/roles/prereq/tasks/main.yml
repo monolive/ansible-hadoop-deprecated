@@ -1,9 +1,9 @@
 ---
   - name : Copy JDK 7
-    copy : src=jdk-7u40-linux-x64.rpm dest=/tmp/jdk-7u40-linux-x64.rpm
+    copy : src=jdk-7u45-linux-x64.rpm dest=/tmp/jdk-7u45-linux-x64.rpm
 
   - name : Install JDK7 
-    yum  : name=/tmp/jdk-7u40-linux-x64.rpm state=installed
+    yum  : name=/tmp/jdk-7u45-linux-x64.rpm state=installed
 
   - name : Disable SELinux
     lineinfile: dest=/etc/selinux/config regexp=^SELINUX= line=SELINUX=disabled
