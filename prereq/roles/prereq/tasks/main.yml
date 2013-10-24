@@ -19,3 +19,6 @@
 
   - name : Apply sysctl.conf
     command : /sbin/sysctl -p 
+
+  - name : Enable ntp
+    service : name=ntpd state=started enabled=yes
