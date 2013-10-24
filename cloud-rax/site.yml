@@ -1,0 +1,7 @@
+- hosts: hadoop_all
+  roles:
+  - prereq
+  
+- hosts: ambari_server
+  roles:
+  - ambari
