@@ -2,6 +2,6 @@
   roles:
   - prereq
   
-- hosts: ambari_server
+- hosts: ambari
   roles:
   - ambari

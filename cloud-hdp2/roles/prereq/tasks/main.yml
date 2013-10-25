@@ -22,3 +22,6 @@
 
   - name : Enable ntp
     service : name=ntpd state=started enabled=yes
+
+  - name : Disable iptables
+    service : name=iptables state=stopped enabled=no
