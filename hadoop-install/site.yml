@@ -4,6 +4,11 @@
    - prereq
    - commons
 
+- hosts: ambari-server
+  user : root
+  roles:
+   - ambari-server
+
 - hosts: namenode
   user : root
   roles:
