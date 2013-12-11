@@ -1,12 +1,12 @@
 --- 
  - name : configure ambari repository
-   action: copy src=ambari.repo dest=/etc/yum.repos.d/ambari.repo
+   copy : src=ambari.repo dest=/etc/yum.repos.d/ambari.repo
 
  - name : install ambari-agent
-   action: yum name=ambari-agent
+   yum : name=ambari-agent
 
  - name : configure ambari-agent
-   action: template src=ambari-agent.ini.j2 dest=/etc/ambari-agent/conf/ambari-agent.ini
+   template : src=ambari-agent.ini.j2 dest=/etc/ambari-agent/conf/ambari-agent.ini
 
  - name : start ambari-agent
-   action: service name=ambari-agent state=started enabled=yes
+   service : name=ambari-agent state=started enabled=yes
