@@ -1,19 +1,16 @@
 [namenode]
-node1.hdp2.cloud
+node1.ambari.hdp
 
 [secondary_namenode]
-node2.hdp2.cloud
+node2.ambari.hdp
 
 [resourcemanager]
-node3.hdp2.cloud
+node3.ambari.hdp
 
-[jobtracker]
-node4.hdp2.cloud
+[ambari]
+node1.ambari.hdp
 
 [datanodes]
-node5.hdp2.cloud
-node6.hdp2.cloud
-node7.hdp2.cloud
-node8.hdp2.cloud
-node9.hdp2.cloud
-node10.hdp2.cloud
+node1.ambari.hdp
+node2.ambari.hdp
+node3.ambari.hdp

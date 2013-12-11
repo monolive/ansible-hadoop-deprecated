@@ -1,7 +1,6 @@
 - hosts: all
   user : root
   roles:
-   - epel-repo
    - prereq
    - commons
 

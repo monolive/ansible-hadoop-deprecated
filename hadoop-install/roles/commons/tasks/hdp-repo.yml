@@ -1,3 +1,0 @@
----
-  - name : Copy hdp repo
-    copy : src=hdp.repo dest=/etc/yum.repos.d/hdp.repo owner=root group=root mode=0644
