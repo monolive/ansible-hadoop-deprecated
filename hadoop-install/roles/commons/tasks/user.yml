@@ -1,0 +1,6 @@
+--- 
+   - name add hadoop group
+     group: name={{ user['HADOOP_GROUP'] }} gid={{ user['HADOOP_GID'] }} state=present
+   
+   - name add hdfs user
+     group: name={{ user['HDFS_USER'] }} uid={{ user['HDFS_UID'] }} group=hadoop state=present
