@@ -1,0 +1,7 @@
+--- 
+ - name : install ambari-server
+   yum : name=ambari-server state=present
+
+ - name : configure ambari-server
+   shell : ambari-server setup -j /usr/java/default -s  
+
