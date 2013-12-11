@@ -5,19 +5,19 @@
   - name : turn off iptables
     service : name=iptables state=stopped enabled=false
   - name : install ntp
-    action: yum name=ntp state=latest
+    yum : name=ntp state=latest
   - name : configure ntp
-    action: template src=ntp.conf.j2 dest=/etc/ntp.conf
+    template : src=ntp.conf.j2 dest=/etc/ntp.conf
     notify : restart ntp
   - name : start ntp
     service: name=ntpd state=started enabled=true
   - name : copy jdk
-    action : copy src=jdk-7u45-linux-x64.rpm dest=/tmp/jdk-7u45-linux-x64.rpm mode=0644 force=no
+    copy : src=jdk-7u45-linux-x64.rpm dest=/tmp/jdk-7u45-linux-x64.rpm mode=0644 force=no
   - name : install jdk
-    action : yum name=/tmp/jdk-7u45-linux-x64.rpm state=present
+    yum : name=/tmp/jdk-7u45-linux-x64.rpm state=present
   - name : Add JAVA_HOME to user profile
-    action : copy src=java.sh dest=/etc/profile.d/java.sh 
+    copy : src=java.sh dest=/etc/profile.d/java.sh 
   - name : install mosh
-    action: yum name=mosh state=latest
+    yum : name=mosh state=latest
   - name : install screen
-    action: yum name=screen state=latest
+    yum : name=screen state=latest
