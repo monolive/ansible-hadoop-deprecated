@@ -1,7 +1,0 @@
----
-  - name : start datanodes
-    shell : su - hdfs -c "/usr/lib/hadoop/sbin/hadoop-daemon.sh --config /etc/hadoop/conf start datanode || true"
-  - name chgrp on hdfs /
-    shell : su - hdfs -c "hadoop fs -chown hdfs:hadoop /"
-  - name chmod 775 on hdfs /
-    shell : su - hdfs -c "hadoop fs -chmod 775 /"

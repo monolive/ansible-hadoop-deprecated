@@ -1,4 +1,0 @@
----
-  - name : Copy yum repo 
-    copy : src=ambari.repo dest=/etc/yum.repos.d/ambari.repo
-

@@ -1,5 +1,0 @@
----
-  - name : format namenode
-    shell : su - hdfs -c "hadoop namenode -format; touch /var/lib/hadoop-hdfs/namenode.formatted" creates=/var/lib/hadoop-hdfs/namenode.formatted
-  - name : start namenode
-    shell : su - hdfs -c "/usr/lib/hadoop/sbin/hadoop-daemon.sh --config /etc/hadoop/conf start namenode"

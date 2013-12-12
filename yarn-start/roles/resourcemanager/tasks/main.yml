@@ -1,3 +1,0 @@
----
-  - name : start resourcemanager
-    shell : /usr/lib/hadoop-yarn/sbin/yarn-daemon.sh --config /etc/hadoop/conf start resourcemanager

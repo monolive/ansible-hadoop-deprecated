@@ -1,3 +1,0 @@
----
-  - name : stop datanodes
-    shell : /usr/lib/hadoop-yarn/sbin/yarn-daemon.sh --config /etc/hadoop/conf stop nodemanager

@@ -1,9 +1,0 @@
-[hadoop_all:children]
-ambari
-datanode 
-
-[ambari]
-node1.test.ambari
-
-[datanode]
-node2.test.ambari
