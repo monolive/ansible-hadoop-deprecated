@@ -12,20 +12,15 @@
 - hosts: namenode
   user : root
   roles:
-  - namenode
 
 - hosts: secondary_namenode
   user : root
   roles:
-  - secondary_namenode
 
 - hosts: resourcemanager
   user : root
   roles:
-  - resourcemanager
 
 - hosts: datanodes
   user : root
   roles:
-  - datanodes
-
