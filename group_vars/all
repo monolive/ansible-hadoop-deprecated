@@ -61,7 +61,3 @@ users:
       # A common group shared by services.
       HADOOP_GROUP : hadoop
       HADOOP_GID : 1000
-      
-      # A common group shared by services.
-      HADOOP_GROUP : hadoop
-      HADOOP_GID : 1000
