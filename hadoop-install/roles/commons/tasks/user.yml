@@ -4,3 +4,30 @@
    
    - name add hdfs user
      group: name={{ user['HDFS_USER'] }} uid={{ user['HDFS_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['YARN_USER'] }} uid={{ user['YARN_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['MAPRED_USER'] }} uid={{ user['MAPRED_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['HIVE_USER'] }} uid={{ user['HIVE_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['HCAT_USER'] }} uid={{ user['HCAT_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['ZOOKEEPER_USER'] }} uid={{ user['ZOOKEEPER_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['OOZIE_USER'] }} uid={{ user['OOZIE_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['SQOOP_USER'] }} uid={{ user['SQOOP_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['AMBARIQA_USER'] }} uid={{ user['AMBARIQA_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
+     group: name={{ user['ZOOKEEPER_USER'] }} uid={{ user['ZOOKEEPER_UID'] }} group=hadoop state=present
