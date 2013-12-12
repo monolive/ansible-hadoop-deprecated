@@ -1,4 +1,0 @@
----
-    - name: Create YARN Directory 
-      file : path={{ item }} state=directory owner={{ hadoop.YARN_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
-      with_items : hadoop.YARN_LOCAL_DIR

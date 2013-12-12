@@ -1,4 +1,0 @@
----
-  - name: Create Secondray Namenode Directory 
-    file : path={{ item }} state=directory owner={{ hadoop.HDFS_USER }} group={{ hadoop.HADOOP_GROUP }} mode=0755 recurse=true
-    with_items : hadoop.FS_CHECKPOINT_DIR
