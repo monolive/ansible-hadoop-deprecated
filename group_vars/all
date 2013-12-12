@@ -47,8 +47,8 @@ users:
       SQOOP_UID : 1008
 
       # ambari-qa user
-      AMBARI_QA_USER : ambari-qa
-      AMBARI_QA_UID : 1009
+      AMBARIQA_USER : ambari-qa
+      AMBARIQA_UID : 1009
 
       # nagios user
       NAGIOS_USER : nagios
