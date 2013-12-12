@@ -1,16 +1,16 @@
-[namenode]
-node1.ambari.hdp
+#[namenode]
+#node1.ambari.hdp
 
-[secondary_namenode]
-node2.ambari.hdp
+#[secondary_namenode]
+#node2.ambari.hdp
 
-[resourcemanager]
-node3.ambari.hdp
+#[resourcemanager]
+#node3.ambari.hdp
 
 [ambari]
 node1.ambari.hdp
 
-[datanodes]
-node1.ambari.hdp
-node2.ambari.hdp
-node3.ambari.hdp
+#[datanodes]
+#node1.ambari.hdp
+#node2.ambari.hdp
+#node3.ambari.hdp
