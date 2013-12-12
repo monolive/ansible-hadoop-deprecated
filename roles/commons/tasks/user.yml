@@ -27,7 +27,13 @@
      group: name={{ user['SQOOP_USER'] }} uid={{ user['SQOOP_UID'] }} group=hadoop state=present
    
    - name add hdfs user
+     group: name={{ user['HBASE_USER'] }} uid={{ user['HBASE_UID'] }} group=hadoop state=present
+   
+   - name add hdfs user
      group: name={{ user['AMBARIQA_USER'] }} uid={{ user['AMBARIQA_UID'] }} group=hadoop state=present
    
    - name add hdfs user
-     group: name={{ user['ZOOKEEPER_USER'] }} uid={{ user['ZOOKEEPER_UID'] }} group=hadoop state=present
+     group: name={{ user['PUPPET_USER'] }} uid={{ user['PUPPET_UID'] }} state=present
+   
+   - name add hdfs user
+     group: name={{ user['NAGIOS_USER'] }} uid={{ user['NAGIOS_UID'] }} state=present
