@@ -1,9 +1,9 @@
 ---
 # Install pre-requisite for a RS instance
   - name : Install requirements for switching off SElinux
-    raw: yum -y install python-simplejson
-  - name: Disable SELinux 
-    selinux: state=disabled
+    raw : yum -y install libselinux-python
+  - name : Disable SELinux 
+    selinux : state=disabled
   - name : turn off iptables
     service : name=iptables state=stopped enabled=false
   - name : install ntp
@@ -19,8 +19,5 @@
     yum : name=/tmp/jdk-7u45-linux-x64.rpm state=present
   - name : Add JAVA_HOME to user profile
     copy : src=java.sh dest=/etc/profile.d/java.sh 
-  - name : install mosh
-    yum : name=mosh state=latest
   - name : install screen
     yum : name=screen state=latest
-
