@@ -5,10 +5,14 @@ network:
 ambari:
       server : node1.ambari.hdp
 
-users:
+user:
       #
       # Users and Groups
       #
+
+      # A common group shared by services.
+      HADOOP_GROUP : hadoop
+      HADOOP_GID : 1000
 
       # User which will own the HDFS services.
       HDFS_USER : hdfs
@@ -57,7 +61,3 @@ users:
       # hcat user
       HCAT_USER : hcat
       HCAT_UID : 1011
-
-      # A common group shared by services.
-      HADOOP_GROUP : hadoop
-      HADOOP_GID : 1000
