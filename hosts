@@ -1,16 +1,16 @@
-#[namenode]
-#node1.ambari.hdp
+[namehadoop]
+hadoop1.kerberos.hdp
 
-#[secondary_namenode]
-#node2.ambari.hdp
+[secondary_namehadoop]
+hadoop2.kerberos.hdp
 
-#[resourcemanager]
-#node3.ambari.hdp
+[resourcemanager]
+hadoop3.kerberos.hdp
 
-[ambari]
-node1.ambari.hdp
+[kerberos]
+hadoop1.kerberos.hdp
 
-#[datanodes]
-#node1.ambari.hdp
-#node2.ambari.hdp
-#node3.ambari.hdp
+[datahadoops]
+hadoop1.kerberos.hdp
+hadoop2.kerberos.hdp
+hadoop3.kerberos.hdp
