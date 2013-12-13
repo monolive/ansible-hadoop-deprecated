@@ -1,5 +1,7 @@
 ---
 # Install pre-requisite for a RS instance
+  - name : Install requirements for switching off SElinux
+    raw: yum -y install python-simplejson
   - name: Disable SELinux 
     selinux: state=disabled
   - name : turn off iptables
@@ -21,3 +23,4 @@
     yum : name=mosh state=latest
   - name : install screen
     yum : name=screen state=latest
+
