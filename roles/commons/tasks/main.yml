@@ -1,4 +1,6 @@
 --- 
+ - include: user.yml
+
  - name : configure ambari repository
    copy : src=ambari.repo dest=/etc/yum.repos.d/ambari.repo
 
