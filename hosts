@@ -1,7 +1,10 @@
-[namehadoop]
+[namenode]
 hadoop1.kerberos.hdp
 
-[secondary_namehadoop]
+[ambari-server]
+hadoop1.kerberos.hdp
+
+[secondary_namenode]
 hadoop2.kerberos.hdp
 
 [resourcemanager]
