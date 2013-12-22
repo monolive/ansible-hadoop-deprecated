@@ -4,6 +4,8 @@
     raw : yum -y install libselinux-python
   - name : Disable SELinux 
     selinux : state=disabled
+    notify : 
+    - turn it off
   - name : turn off iptables
     service : name=iptables state=stopped enabled=false
   - name : install ntp
