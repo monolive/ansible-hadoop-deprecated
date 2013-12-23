@@ -2,9 +2,6 @@
 network:
       ntp_server : 10.179.0.164
 
-ambari:
-      server : node1.ambari.hdp
-
 user:
       #
       # Users and Groups
