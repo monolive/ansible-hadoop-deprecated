@@ -7,3 +7,6 @@
 
  - name : start ambari-server
    service : name=ambari-server state=started enabled=yes
+
+ - name : copy python script
+   template : src=create-cluster.py.j2 dest=/tmp/create-cluster.py mode=0755
