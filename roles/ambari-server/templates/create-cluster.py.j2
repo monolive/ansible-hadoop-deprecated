@@ -31,8 +31,9 @@ def main():
     logging.info("Program started")
      
      
-     
-    client = AmbariClient("localhost", 8080, "admin", "admin", version=1)
+    {% for host in groups['ambari_server'] %}
+        client = AmbariClient( {{ hostvars[host] }} , 8080, "admin", "admin", version=1)
+    {% endfor %}
     print client.version
     print client.host_url
     print"\n"
