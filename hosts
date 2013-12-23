@@ -1,7 +1,7 @@
 [namenode]
 node1.ambari.hdp
 
-[ambari-server]
+[ambari_server]
 node1.ambari.hdp
 
 [secondary_namenode]
