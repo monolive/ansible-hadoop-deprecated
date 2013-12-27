@@ -3,7 +3,7 @@
    yum : name=ambari-server state=present
 
  - name : configure ambari-server
-   shell : ambari-server setup -j /usr/java/default -s  
+   shell : creates=/var/lib/ambari-server/ansible-configured ambari-server setup -j /usr/java/default -s  
 
  - name : start ambari-server
    service : name=ambari-server state=started enabled=yes
