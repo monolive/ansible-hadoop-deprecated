@@ -13,7 +13,10 @@
 # See the License for the specific
 
 [server]
-hostname={{ ambari['server'] }}
+{% for host in groups['ambari_server'] %}
+# something that applies to all app servers.
+hostname={{ hostvars[host]['ansible_fqdn'] }}
+{% endfor %}
 url_port=8440
 secured_url_port=8441
 
