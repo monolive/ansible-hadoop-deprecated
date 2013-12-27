@@ -58,3 +58,14 @@ user:
       # hcat user
       HCAT_USER : hcat
       HCAT_UID : 1011
+
+hdp:
+      #
+      # Cluster def and config
+      #
+
+      # Cluster version, should be of the form : HDP-1.3.3 or HDP-2.0.6
+      HDP_VERSION : HDP-2.0.6
+
+      # Cluster Name
+      CLUSTERNAME : hortonworks
