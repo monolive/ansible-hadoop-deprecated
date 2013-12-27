@@ -32,87 +32,44 @@ def main():
      
      
     {% for host in groups['ambari_server'] %}
-        client = AmbariClient( {{ hostvars[host] }} , 8080, "admin", "admin", version=1)
+        client = AmbariClient( {{ hostvars[host]['ansible_fqdn'] }} , 8080, "admin", "admin", version=1)
     {% endfor %}
-    print client.version
-    print client.host_url
-    print"\n"
     
     
     ###############################
     # cluster creation
     ###############################
     # 1) create cluster
-    cluster = client.create_cluster("test33", "HDP-1.3.0")
-    print cluster
-    
-
-    cluster = client.get_cluster('test33')
-    print cluster
-    print cluster.to_json_dict()
-    print"\n"
+    cluster = client.create_cluster( {{ hdp.CLUSTERNAME }}, {{ hdp.HDP_VERSION }} )
     
     # 2) create services
     services_list = ["HDFS", "MAPREDUCE", "NAGIOS", "GANGLIA"]
     s2 = cluster.create_services(services_list)
-    print s2
-    
-    s2 = cluster.create_service("ZOOKEEPER")
-    print s2
     
     # 3) create global config
     s3 = cluster.add_config("global", "version1" , {})
-    print s3
     s3 = cluster.add_config("core-site", "version1" , {})
-    print s3
     s3 = cluster.add_config("hdfs-site", "version1" , {})
-    print s3
     s3 = cluster.add_config("mapred-site", "version1" , {})
-    print s3
-#    s3 = cluster.add_config("hbase-site", "version1" , {})
-#    print s3
-#    s3 = cluster.add_config("oozie-site", "version1" , {})
-#    print s3
-#    s3 = cluster.add_config("hive-site", "version1" , {})
-#    print s3
-#    s3 = cluster.add_config("webhcat-site", "version1" , {})
-#    print s3
-    
-    
-    
-    
-#    hdfs_components = client.get_components("1.3.0", "HDFS")
-#    print hdfs_components
-#    mr_components = client.get_components("1.3.0", "MAPREDUCE")
-#    print mr_components
-#    ganglia_components = client.get_components("1.3.0", "GANGLIA")
-#    print ganglia_components
-#    nagios_components = client.get_components("1.3.0", "NAGIOS")
-#    print nagios_components
-
 
     # 4) add service components
-    s2 = cluster.create_service_components("1.3.0", "HDFS")
-    print s2    
-    s2 = cluster.create_service_components("1.3.0", "MAPREDUCE")
-    print s2 
-    s2 = cluster.create_service_components("1.3.0", "GANGLIA")
-    print s2 
-    s2 = cluster.create_service_components("1.3.0", "NAGIOS")
-    print s2 
+    s2 = cluster.create_service_components("2.0.6", "HDFS")
+    s2 = cluster.create_service_components("2.0.6", "MAPREDUCE")
+    s2 = cluster.create_service_components("2.0.6", "GANGLIA")
+    s2 = cluster.create_service_components("2.0.6", "NAGIOS")
 
-
+    
     all_hosts = client.get_all_hosts()
-    h_l = [x.host_name for x in all_hosts]
-    print h_l
+    hosts_list = [x.host_name for x in all_hosts]
     
     # 5) add hosts
-    s3 = cluster.create_hosts(h_l)
-    print s3
-    print"\n"
+    s3 = cluster.create_hosts(hosts_list)
     
     # 6) add hosts roles
-    host1 = cluster.get_host('r01wn01')
+    {% for host in groups['namenode'] %}
+        host1 = cluster.get_host('{{ hostvars[host]['ansible_fqdn'] }}')
+    {% endfor %}
+    
     print host1
     s4 = host1.assign_role("NAMENODE")
     print s4
