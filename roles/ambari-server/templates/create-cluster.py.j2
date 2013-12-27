@@ -31,9 +31,9 @@ def main():
     logging.info("Program started")
      
      
-    {% for host in groups['ambari_server'] %}
+{% for host in groups['ambari_server'] %}
     client = AmbariClient( "{{ hostvars[host]['ansible_fqdn'] }}" , 8080, "admin", "admin", version=1)
-    {% endfor %}
+{% endfor %}
     
     
     ###############################
@@ -66,9 +66,9 @@ def main():
     s3 = cluster.create_hosts(hosts_list)
     
     # 6) add hosts roles
-    {% for host in groups['namenode'] %}
-        host1 = cluster.get_host('{{ hostvars[host]['ansible_fqdn'] }}')
-    {% endfor %}
+{% for host in groups['namenode'] %}
+    host1 = cluster.get_host('{{ hostvars[host]['ansible_fqdn'] }}')
+{% endfor %}
     
     print host1
     s4 = host1.assign_role("NAMENODE")
