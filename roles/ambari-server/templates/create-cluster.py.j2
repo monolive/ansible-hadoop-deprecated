@@ -40,7 +40,7 @@ def main():
     # cluster creation
     ###############################
     # 1) create cluster
-    cluster = client.create_cluster( {{ hdp.CLUSTERNAME }}, {{ hdp.HDP_VERSION }} )
+    cluster = client.create_cluster( {{ hdp.CLUSTERNAME }}, "HDP-"{{ hdp.HDP_VERSION }} )
     
     # 2) create services
     services_list = ["HDFS", "MAPREDUCE", "NAGIOS", "GANGLIA"]
@@ -53,10 +53,10 @@ def main():
     s3 = cluster.add_config("mapred-site", "version1" , {})
 
     # 4) add service components
-    s2 = cluster.create_service_components("2.0.6", "HDFS")
-    s2 = cluster.create_service_components("2.0.6", "MAPREDUCE")
-    s2 = cluster.create_service_components("2.0.6", "GANGLIA")
-    s2 = cluster.create_service_components("2.0.6", "NAGIOS")
+    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "HDFS")
+    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "MAPREDUCE")
+    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "GANGLIA")
+    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "NAGIOS")
 
     
     all_hosts = client.get_all_hosts()
