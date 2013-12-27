@@ -32,7 +32,7 @@ def main():
      
      
     {% for host in groups['ambari_server'] %}
-        client = AmbariClient( {{ hostvars[host]['ansible_fqdn'] }} , 8080, "admin", "admin", version=1)
+    client = AmbariClient( "{{ hostvars[host]['ansible_fqdn'] }}" , 8080, "admin", "admin", version=1)
     {% endfor %}
     
     
@@ -40,10 +40,10 @@ def main():
     # cluster creation
     ###############################
     # 1) create cluster
-    cluster = client.create_cluster( {{ hdp.CLUSTERNAME }}, "HDP-"{{ hdp.HDP_VERSION }} )
-    
+    cluster = client.create_cluster( "{{ hdp.CLUSTERNAME }}", "HDP-{{ hdp.HDP_VERSION }}" )
+    cluster = client.get_cluster("{{ hdp.CLUSTERNAME }}")
     # 2) create services
-    services_list = ["HDFS", "MAPREDUCE", "NAGIOS", "GANGLIA"]
+    services_list = ["HDFS", "YARN", "NAGIOS", "GANGLIA"]
     s2 = cluster.create_services(services_list)
     
     # 3) create global config
@@ -53,10 +53,10 @@ def main():
     s3 = cluster.add_config("mapred-site", "version1" , {})
 
     # 4) add service components
-    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "HDFS")
-    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "MAPREDUCE")
-    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "GANGLIA")
-    s2 = cluster.create_service_components({{ hdp.HDP_VERSION }}, "NAGIOS")
+    s2 = cluster.create_service_components("{{ hdp.HDP_VERSION }}", "HDFS")
+    s2 = cluster.create_service_components("{{ hdp.HDP_VERSION }}", "YARN")
+    s2 = cluster.create_service_components("{{ hdp.HDP_VERSION }}", "GANGLIA")
+    s2 = cluster.create_service_components("{{ hdp.HDP_VERSION }}", "NAGIOS")
 
     
     all_hosts = client.get_all_hosts()
