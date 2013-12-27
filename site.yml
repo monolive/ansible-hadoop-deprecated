@@ -4,7 +4,7 @@
    - prereq
    - commons
 
-- hosts: ambari-server
+- hosts: ambari_server
   user : root
   roles:
    - ambari-server
