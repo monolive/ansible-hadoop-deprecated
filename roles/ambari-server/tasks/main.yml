@@ -9,7 +9,7 @@
    yum : name=/tmp/ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm state=present
 
  - name : configure ambari-server
-   shell : creates=/var/lib/ambari-server/ansible-configured ambari-server setup -j /usr/java/default -s  
+   command : creates=/var/lib/ambari-server/ansible-configured ambari-server setup -j /usr/java/default -s creates=/etc/ambari-server/conf/ansible.done
 
  - name : start ambari-server
    service : name=ambari-server state=started enabled=yes
