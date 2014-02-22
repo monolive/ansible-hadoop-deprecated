@@ -5,6 +5,20 @@
  - name : Copy ambari-client
    copy : src=ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm dest=/tmp/ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm
 
+ - name : Copy config.sh
+   copy : src=config.sh dest=ambari-install/config.sh mode=0755
+
+ - name : Install ambari-client
+   yum : name=/tmp/ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm state=present
+
+ - name : configure ambari-server
+   command : creates=/var/lib/ambari-server/ansible-configured ambari-server setup -j /usr/java/default -s creates=/etc/ambari-server/conf/ansible.done
+
+ - name : start ambari-server
+   service : name=ambari-server state=started enabled=yes
+
+ - name : copy python script
+   template : src=create-cluster.py.j2 dest=/tmp/create-cluster.py mode=0755
  - name : Install ambari-client
    yum : name=/tmp/ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm state=present
 
