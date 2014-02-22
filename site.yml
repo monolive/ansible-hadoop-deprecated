@@ -8,10 +8,12 @@
   user : root
   roles:
    - ambari-server
+   - hdfs-common
 
 - hosts: namenode
   user : root
   roles:
+   - namenode
 
 - hosts: secondary_namenode
   user : root
