@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST -d '{"RequestInfo":{"context":"Define cluster"}, "Body":{"Clusters": {"version": "{{ hdp['HDP_VERSION']}}" }}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME'] }}
