@@ -1,0 +1,6 @@
+--- 
+ - name : copy core-site.xml
+   template : src=core-site.xml.j2 dest=/root/ambari-install/core-site.xml mode=0644
+
+ - name : copy hdfs-site.xml
+   template : src=hdfs-site.xml.j2 dest=/root/ambari-install/hdfs-site.xml mode=0644
