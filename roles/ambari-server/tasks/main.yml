@@ -2,34 +2,20 @@
  - name : install ambari-server
    yum : name=ambari-server state=present
 
- - name : Copy ambari-client
-   copy : src=ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm dest=/tmp/ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm
-
  - name : Create Folder
-   copy : src=/root/ambari-install state=directory mode=0755
+   file : dest=/root/ambari-install state=directory mode=0755
 
  - name : Copy configs.sh
-   copy : src=configs.sh dest=ambari-install/configs.sh mode=0755
-
- - name : Install ambari-client
-   yum : name=/tmp/ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm state=present
+   copy : src=configs.sh dest=/root/ambari-install/configs.sh mode=0755
 
  - name : configure ambari-server
-   command : creates=/var/lib/ambari-server/ansible.done ambari-server setup -j /usr/java/default -s
+   command : creates=/root/ambari-install/ansible.done ambari-server setup -j /usr/java/default -s
 
  - name : start ambari-server
    service : name=ambari-server state=started enabled=yes
 
- - name : copy python script
-   template : src=create-cluster.py.j2 dest=/tmp/create-cluster.py mode=0755
- - name : Install ambari-client
-   yum : name=/tmp/ambari-client-1.3.0-SNAPSHOT20140211230440.x86_64.rpm state=present
+ - name : copy script
+   template : src=create-cluster.sh.j2 dest=/root/ambari-install/create-cluster.sh mode=0755
 
- - name : configure ambari-server
-   command : creates=/var/lib/ambari-server/ansible-configured ambari-server setup -j /usr/java/default -s creates=/etc/ambari-server/conf/ansible.done
-
- - name : start ambari-server
-   service : name=ambari-server state=started enabled=yes
-
- - name : copy python script
-   template : src=create-cluster.py.j2 dest=/tmp/create-cluster.py mode=0755
+ - name : create cluster
+   command : creates=/root/ambari-install/create-cluster.done /root/ambari-install/create-cluster.sh
