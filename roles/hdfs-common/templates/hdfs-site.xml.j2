@@ -27,15 +27,11 @@
 "dfs.namenode.checkpoint.edits.dir" : "${dfs.namenode.checkpoint.dir}",
 "dfs.namenode.checkpoint.period" : "21600",
 "dfs.namenode.handler.count" : "100",
-{% for host in groups['namenode'] %}
-"dfs.namenode.http-address" : "{{ hostvars[host]['ansible_fqdn'] }}:50070",
-"dfs.namenode.https-address" : "{{ hostvars[host]['ansible_fqdn'] }}:50470",
-{% endfor %}
+"dfs.namenode.http-address" : "{{ hostvars['namenode']['ansible_fqdn'] }}:50070",
+"dfs.namenode.https-address" : "{{ hostvars['namenode']['ansible_fqdn'] }}:50470",
 "dfs.namenode.name.dir" : "/mnt/hadoop/hdfs/namenode",
 "dfs.namenode.safemode.threshold-pct" : "1.0f",
-{% for host in groups['secondary_namenode'] %}
-"dfs.namenode.secondary.http-address" : "{{ hostvars[host]['ansible_fqdn'] }}:50090",
-{% endfor %}
+"dfs.namenode.secondary.http-address" : "{{ hostvars['secondary_namenode']['ansible_fqdn'] }}:50090",
 "dfs.namenode.stale.datanode.interval" : "30000",
 "dfs.namenode.write.stale.datanode.ratio" : "1.0f",
 "dfs.permissions.enabled" : "true",
