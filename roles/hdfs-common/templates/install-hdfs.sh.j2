@@ -1,0 +1,17 @@
+#!/bin/bash
+
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/services/HDFS
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/services/HDFS/components/DATANODE
+{% for host in groups['datanode']
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/DATANODE
+{% endfor %}
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/services/HDFS/components/NAMENODE
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/hosts/{{ hostvars['namenode']['ansible_fqdn'] }}/host_components/NAMENODE
+
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/services/HDFS/components/HDFS_CLIENT
+{% for host in groups['all']
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/HDFS_CLIENT
+{% endfor %}
+
+#Start the installation
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install HDFS"}, "Body":{"ServiceInfo": {"state":"INSTALLED"}}}' http://{{ hostvars['ambari_server']['ansible_fqdn'] }}:8080/api/v1/clusters/poc/services/HDFS
