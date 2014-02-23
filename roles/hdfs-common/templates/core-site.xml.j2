@@ -1,16 +1,15 @@
-{% for host in groups['namenode'] %}
 "properties" : {
 "fs.AbstractFileSystem.glusterfs.impl" : "null",
-"fs.defaultFS" : "hdfs://{{ hostvars[host]['ansible_fqdn'] }}:8020",
+"fs.defaultFS" : "hdfs://{{ hostvars['namenode']['ansible_fqdn'] }}:8020",
 "fs.glusterfs.getfattrcmd" : "null",
 "fs.glusterfs.impl" : "null",
 "fs.glusterfs.mount" : "null",
 "fs.glusterfs.volname" : "null",
 "fs.trash.interval" : "360",
 "hadoop.proxyuser.hcat.groups" : "users",
-"hadoop.proxyuser.hcat.hosts" : "{{ hostvars[host]['ansible_fqdn'] }}",
+"hadoop.proxyuser.hcat.hosts" : "{{ hostvars['namenode']['ansible_fqdn'] }}",
 "hadoop.proxyuser.hive.groups" : "users",
-"hadoop.proxyuser.hive.hosts" : "{{ hostvars[host]['ansible_fqdn'] }}",
+"hadoop.proxyuser.hive.hosts" : "{{ hostvars['namenode']['ansible_fqdn'] }}",
 "hadoop.proxyuser.hue.groups" : "*",
 "hadoop.proxyuser.hue.hosts" : "*",
 "hadoop.proxyuser.oozie.groups" : "*",
@@ -28,4 +27,3 @@
 "ipc.client.idlethreshold" : "8000",
 "mapreduce.jobtracker.webinterface.trusted" : "false"
 }
-{% endfor %}
