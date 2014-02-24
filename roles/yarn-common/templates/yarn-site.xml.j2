@@ -4,7 +4,7 @@
 "yarn.application.classpath" : "/etc/hadoop/conf,/usr/lib/hadoop/*,/usr/lib/hadoop/lib/*,/usr/lib/hadoop-hdfs/*,/usr/lib/hadoop-hdfs/lib/*,/usr/lib/hadoop-yarn/*,/usr/lib/hadoop-yarn/lib/*,/usr/lib/hadoop-mapreduce/*,/usr/lib/hadoop-mapreduce/lib/*",
 "yarn.log-aggregation-enable" : "true",
 "yarn.log-aggregation.retain-seconds" : "2592000",
-"yarn.log.server.url" : "http://{{ hostvars[groups['job_history'][0]]['ansible_fqdn'] }}:19888/jobhistory/logs",
+"yarn.log.server.url" : "http://{{ hostvars[groups['historyserver'][0]]['ansible_fqdn'] }}:19888/jobhistory/logs",
 "yarn.nodemanager.address" : "0.0.0.0:45454",
 "yarn.nodemanager.admin-env" : "MALLOC_ARENA_MAX=$MALLOC_ARENA_MAX",
 "yarn.nodemanager.aux-services" : "mapreduce_shuffle",
