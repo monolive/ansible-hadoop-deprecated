@@ -10,7 +10,7 @@ node2.ambari.hdp
 [resourcemanager]
 node3.ambari.hdp
 
-[job_history]
+[historyserver]
 node3.ambari.hdp
 
 [datanode]
