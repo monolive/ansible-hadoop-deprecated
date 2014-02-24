@@ -4,3 +4,9 @@
 
  - name : copy hdfs-site.xml
    template : src=hdfs-site.xml.j2 dest=/root/ambari-install/hdfs-site.xml mode=0644
+
+ - name : copy global.xml
+   template : src=global.xml.j2 dest=/root/ambari-install/global.xml mode=0644
+
+ - name : copy install hdfs
+   template : src=install-hdfs.sh.j2 dest=/root/ambari-install/install-hdfs.sh mode=0755
