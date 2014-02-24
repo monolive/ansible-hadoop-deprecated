@@ -13,7 +13,7 @@
 - hosts: namenode
   user : root
   roles:
-   - namenode
+#   - namenode
 
 - hosts: secondary_namenode
   user : root
