@@ -1,3 +1,6 @@
+[ambari_server]
+node1.ambari.hdp
+
 [namenode]
 node1.ambari.hdp
 
@@ -7,10 +10,16 @@ node2.ambari.hdp
 [resourcemanager]
 node3.ambari.hdp
 
-[ambari_server]
-node1.ambari.hdp
+[job_history]
+node3.ambari.hdp
 
 [datanode]
 node1.ambari.hdp
 node2.ambari.hdp
 node3.ambari.hdp
+
+[hive]
+node1.ambari.hdp
+
+[oozie]
+node1.ambari.hdp
