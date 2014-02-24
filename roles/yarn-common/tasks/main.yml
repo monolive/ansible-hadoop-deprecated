@@ -1,0 +1,9 @@
+--- 
+ - name : copy yarn-site.xml
+   template : src=yarn-site.xml.j2 dest=/root/ambari-install/yarn-site.xml mode=0644
+
+ - name : copy capacity-scheduler.xml
+   template : src=capacity-scheduler.xml.j2 dest=/root/ambari-install/capacity-scheduler.xml mode=0644
+
+ - name : copy install yarn
+   template : src=install-yarn.sh.j2 dest=/root/ambari-install/install-yarn.sh mode=0755
