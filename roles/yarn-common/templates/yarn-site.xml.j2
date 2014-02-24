@@ -30,7 +30,7 @@
 "yarn.resourcemanager.am.max-attempts" : "2",
 "yarn.resourcemanager.hostname" : "{{ hostvars[groups['resourcemanager'][0]]['ansible_fqdn'] }}",
 "yarn.resourcemanager.resource-tracker.address" : "{{ hostvars[groups['resourcemanager'][0]]['ansible_fqdn'] }}:8025",
-"yarn.resourcemanager.scheduler.address" : "{{ hostvars['resouremanager']['ansible_fqdn'] }}:8030",
+"yarn.resourcemanager.scheduler.address" : "{{ hostvars['resourcemanager']['ansible_fqdn'] }}:8030",
 "yarn.resourcemanager.scheduler.class" : "org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler",
 "yarn.resourcemanager.webapp.address" : "{{ hostvars[groups['resourcemanager'][0]]['ansible_fqdn'] }}:8088",
 "yarn.scheduler.capacity.node-locality-delay" : "40",
