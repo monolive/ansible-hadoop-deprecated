@@ -16,9 +16,9 @@
 "yarn.nodemanager.health-checker.interval-ms" : "135000",
 "yarn.nodemanager.health-checker.script.timeout-ms" : "60000",
 "yarn.nodemanager.linux-container-executor.group" : "hadoop",
-"yarn.nodemanager.local-dirs" : "/mnt/hadoop/yarn/local",
+"yarn.nodemanager.local-dirs" : "{{ hdp.yarn_nodemanager_local-dirs }}",
 "yarn.nodemanager.log-aggregation.compression-type" : "gz",
-"yarn.nodemanager.log-dirs" : "/mnt/hadoop/yarn/log",
+"yarn.nodemanager.log-dirs" : "{{ hdp.yarn_nodemanager_log-dirs }}"
 "yarn.nodemanager.log.retain-second" : "604800",
 "yarn.nodemanager.remote-app-log-dir" : "/app-logs",
 "yarn.nodemanager.remote-app-log-dir-suffix" : "logs",

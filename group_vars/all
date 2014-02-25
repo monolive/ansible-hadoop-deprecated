@@ -71,4 +71,8 @@ hdp:
       CLUSTERNAME : hortonworks
 
       # Mount points 
-      MOUNTPOINT : /hadoop
+      dfs_datanode_data_dir : /hadoop/hdfs/data
+      dfs_namenode_checkpoint_dir : /hadoop/hdfs/namesecondary
+      dfs_namenode_name_dir : /hadoop/hdfs/namenode
+      yarn_nodemanager_local-dirs : /hadoop/yarn/local
+      yarn_nodemanager_log-dirs : /var/log/hadoop/yarn
