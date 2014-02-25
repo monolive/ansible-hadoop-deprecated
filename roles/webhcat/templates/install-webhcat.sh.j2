@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Define WEBHCAT service
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/WEBHCAT
+
+# Define WEBHCAT Server
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/WEBHCAT/components/WEBHCAT_SERVER
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['webhcat'][0]['ansible_fqdn'] }}/host_components/WEBHCAT_SERVER
+
+# PUsh configuration
+/root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} core-site /root/ambari-install/webhcat-site.json
+
+# Start the installation
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install WEBHCAT"}, "Body":{"ServiceInfo": {"state":"INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/WEBHCAT

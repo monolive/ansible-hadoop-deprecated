@@ -7,7 +7,7 @@
 
 # Install client
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/MAPREDUCE2/components/MAPREDUCE2_CLIENT
-{% for host in groups['all'] %}
+{% for host in groups['client'] %}
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/MAPREDUCE2_CLIENT
 {% endfor %}
 

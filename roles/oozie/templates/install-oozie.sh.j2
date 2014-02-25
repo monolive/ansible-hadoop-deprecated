@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Define OOZIE service
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/OOZIE
+
+# Define oozie server
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/OOZIE/components/OOZIE_SERVER
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['oozie'][0]]['ansible_fqdn'] }}/host_components/OOZIE_SERVER
+
+# Define OOZIE Client
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/OOZIE/components/OOZIE_CLIENT
+{% for host in groups['client'] %}
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/OOZIE_CLIENT
+{% endfor %}
+
+# Push configuration
+/root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} core-site /root/ambari-install/oozie-site.json
+
+# Start the installation
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install OOZIE"}, "Body":{"ServiceInfo": {"state":"INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/OOZIE

@@ -1,21 +1,25 @@
 #!/bin/bash
 
-# Configure HDFS service
+# Define HDFS service
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HDFS
 
-# Configure datanode
+# Define Namenode
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HDFS/components/NAMENODE
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['namenode'][0]]['ansible_fqdn'] }}/host_components/NAMENODE
+
+# Define Secondary Namenode
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HDFS/components/SECONDARY_NAMENODE
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['secondary_namenode'][0]]['ansible_fqdn'] }}/host_components/SECONDARY_NAMENODE
+
+# Define Datanode
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HDFS/components/DATANODE
 {% for host in groups['datanode'] %}
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/DATANODE
 {% endfor %}
 
-# Configure Namenode
-/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HDFS/components/NAMENODE
-/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['namenode'][0]]['ansible_fqdn'] }}/host_components/NAMENODE
-
-# Configure HDFS Client
+# Define HDFS Client
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HDFS/components/HDFS_CLIENT
-{% for host in groups['all'] %}
+{% for host in groups['client'] %}
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/HDFS_CLIENT
 {% endfor %}
 

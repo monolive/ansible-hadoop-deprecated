@@ -1,0 +1,20 @@
+"properties" : {
+"templeton.exec.timeout" : "60000",
+"templeton.hadoop" : "/usr/bin/hadoop",
+"templeton.hadoop.conf.dir" : "/etc/hadoop/conf",
+"templeton.hcat" : "/usr/bin/hcat",
+"templeton.hive.archive" : "hdfs:///apps/webhcat/hive.tar.gz",
+"templeton.hive.path" : "hive.tar.gz/hive/bin/hive",
+"templeton.hive.properties" : "hive.metastore.local=false,hive.metastore.uris=thrift://hdp2-master1.secloud.hortonworks.com:9083,hive.metastore.sasl.enabled=yes,hive.metastore.execute.setugi=true,hive.metastore.warehouse.dir=/apps/hive/warehouse",
+"templeton.jar" : "/usr/lib/hcatalog/share/webhcat/svr/webhcat.jar",
+"templeton.libjars" : "/usr/lib/zookeeper/zookeeper.jar",
+"templeton.override.enabled" : "false",
+"templeton.pig.archive" : "hdfs:///apps/webhcat/pig.tar.gz",
+"templeton.pig.path" : "pig.tar.gz/pig/bin/pig",
+"templeton.port" : "50111",
+"templeton.storage.class" : "org.apache.hive.hcatalog.templeton.tool.ZooKeeperStorage",
+"templeton.streaming.jar" : "hdfs:///apps/webhcat/hadoop-streaming.jar",
+"templeton.zookeeper.hosts" : "{{ groups.zookeeper | join(':2181,') }}:2181",
+"webhcat.proxyuser.hue.groups" : "*",
+"webhcat.proxyuser.hue.hosts" : "*"
+}

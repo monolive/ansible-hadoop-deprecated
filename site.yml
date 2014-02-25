@@ -11,20 +11,7 @@
    - hdfs
    - yarn
    - mapreduce2
-
-- hosts: namenode
-  user : root
-  roles:
-#   - namenode
-
-- hosts: secondary_namenode
-  user : root
-  roles:
-
-- hosts: resourcemanager
-  user : root
-  roles:
-
-- hosts: datanodes
-  user : root
-  roles:
+   - ganglia
+   - nagios
+   - hive
+   - hcatalog

@@ -1,3 +1,4 @@
+# Ambari server will also run Ganglia and Nagios servers
 [ambari_server]
 node1.ambari.hdp
 
@@ -18,8 +19,17 @@ node1.ambari.hdp
 node2.ambari.hdp
 node3.ambari.hdp
 
+[zookeeper]
+node1.ambari.hdp
+node2.ambari.hdp
+node3.ambari.hdp
+
+# Hive server will also run metastore and mysql server
 [hive]
 node1.ambari.hdp
 
 [oozie]
+node1.ambari.hdp
+
+[client]
 node1.ambari.hdp

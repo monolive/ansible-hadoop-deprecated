@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Define HIVE service
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HIVE
+
+# Define hive metastore
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HIVE/components/HIVE_METASTORE
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['hive'][0]]['ansible_fqdn'] }}/host_components/HIVE_METASTORE
+
+# Define hive server
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HIVE/components/HIVE_SERVER
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['hive'][0]]['ansible_fqdn'] }}/host_components/HIVE_SERVER
+
+# Define mysql server
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HIVE/components/MYSQL_SERVER
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['hive'][0]]['ansible_fqdn'] }}/host_components/MYSQL_SERVER
+
+# Define HIVE Client
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HIVE/components/HIVE_CLIENT
+{% for host in groups['client'] %}
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/HIVE_CLIENT
+{% endfor %}
+
+# Push configuration
+/root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} core-site /root/ambari-install/hive-site.json
+
+# Start the installation
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install HIVE"}, "Body":{"ServiceInfo": {"state":"INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HIVE

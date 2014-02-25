@@ -38,8 +38,8 @@
 
 # Create Hadoop Directory structure
   - name : create directories
-    file : dest={{ hdp.['dfs_datanode_data_dir'] }} state=directory
-    file : dest={{ hdp.['dfs_namenode_checkpoint_dir'] }} state=directory
-    file : dest={{ hdp.['dfs_namenode_name_dir'] }} state=directory
-    file : dest={{ hdp.['yarn_nodemanager_local-dirs'] }} state=directory
-    file : dest={{ hdp.['yarn_nodemanager_log-dirs'] }} state=directory
+    file : dest={{ hdp['dfs_datanode_data_dir'] }} state=directory
+    file : dest={{ hdp['dfs_namenode_checkpoint_dir'] }} state=directory
+    file : dest={{ hdp['dfs_namenode_name_dir'] }} state=directory
+    file : dest={{ hdp['yarn_nodemanager_local-dirs'] }} state=directory
+    file : dest={{ hdp['yarn_nodemanager_log-dirs'] }} state=directory

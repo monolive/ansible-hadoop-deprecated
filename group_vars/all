@@ -74,5 +74,24 @@ hdp:
       dfs_datanode_data_dir : /hadoop/hdfs/data
       dfs_namenode_checkpoint_dir : /hadoop/hdfs/namesecondary
       dfs_namenode_name_dir : /hadoop/hdfs/namenode
-      yarn_nodemanager_local-dirs : /hadoop/yarn/local
-      yarn_nodemanager_log-dirs : /var/log/hadoop/yarn
+      yarn_nodemanager_local_dirs : /hadoop/yarn/local
+      yarn_nodemanager_log_dirs : /var/log/hadoop/yarn
+      yarn_log_dir_prefix : /var/log/hadoop/yarn
+      hbase_log_dir : /var/log/hadoo/hbase
+      hbase_tmp_dir : /hadoop/hbase
+      hcat_log_dir : /var/log/hadoop/hcat
+      hdfs_log_dir_prefix : /var/log/hadoop/hdfs
+      hive_log_dir : /var/log/hadoop/hive
+      mapred_log_dir_prefix : /var/log/hadoop/mapred
+      oozie_data_dir : /hadoop/oozie
+      oozie_log_dir : /var/log/hadoop/oozie
+      zk_data_dir : /hadoop/zookeeper
+      zk_log_dir : /var/log/hadoop/zookeeper
+
+nagios:
+      # 
+      # NAgios config
+      #
+      nagios_contact : orenault@hortonworks.com
+      nagios_web_login : nagiosadmin
+      nagios_web_password : admin
