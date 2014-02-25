@@ -69,3 +69,6 @@ hdp:
 
       # Cluster Name
       CLUSTERNAME : hortonworks
+
+      # Mount points 
+      MOUNTPOINT : /hadoop
