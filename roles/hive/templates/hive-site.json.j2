@@ -40,7 +40,7 @@
 "hive.stats.jdbcdriver" : "com.mysql.jdbc.Driver",
 "hive.support.concurrency" : "true",
 "hive.vectorized.execution.enabled" : "true",
-"hive.zookeeper.quorum" : "{{ groups.zookeeper | join ',' }}",
+"hive.zookeeper.quorum" : "{{ groups.zookeeper | join (',') }}",
 "javax.jdo.option.ConnectionDriverName" : "com.mysql.jdbc.Driver",
 "javax.jdo.option.ConnectionPassword" : "admin",
 "javax.jdo.option.ConnectionURL" : "jdbc:mysql://jdbc:mysql://{{ hostvars[groups['hive'][0]]['ansible_fqdn'] }}/hive?createDatabaseIfNotExist=true",

@@ -3,7 +3,7 @@
    template : src=yarn-site.json.j2 dest=/root/ambari-install/yarn-site.json mode=0644
 
  - name : copy capacity-scheduler.json
-   template : src=capacity-scheduler.json.j2 dest=/root/ambari-install/capacity-scheduler.json mode=0644
+   copy : src=capacity-scheduler.json dest=/root/ambari-install/capacity-scheduler.json mode=0644
 
  - name : copy install yarn
    template : src=install-yarn.sh.j2 dest=/root/ambari-install/install-yarn.sh mode=0755
