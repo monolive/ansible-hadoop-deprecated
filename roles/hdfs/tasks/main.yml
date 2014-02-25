@@ -8,8 +8,8 @@
  - name : copy global.json
    template : src=global.json.j2 dest=/root/ambari-install/global.json mode=0644
 
- - name : copy hadoop-policy.json
-   copy : src=hadoop-policy.json dest=/root/ambari-install/hadoop-policy.json mode=0644
+# - name : copy hadoop-policy.json
+#   copy : src=hadoop-policy.json dest=/root/ambari-install/hadoop-policy.json mode=0644
 
  - name : copy install hdfs
    template : src=install-hdfs.sh.j2 dest=/root/ambari-install/install-hdfs.sh mode=0755
