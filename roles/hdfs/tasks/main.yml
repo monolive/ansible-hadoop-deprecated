@@ -1,15 +1,15 @@
 --- 
- - name : copy core-site.xml
-   template : src=core-site.xml.j2 dest=/root/ambari-install/core-site.xml mode=0644
+ - name : copy core-site.json
+   template : src=core-site.json.j2 dest=/root/ambari-install/core-site.json mode=0644
 
- - name : copy hdfs-site.xml
-   template : src=hdfs-site.xml.j2 dest=/root/ambari-install/hdfs-site.xml mode=0644
+ - name : copy hdfs-site.json
+   template : src=hdfs-site.json.j2 dest=/root/ambari-install/hdfs-site.json mode=0644
 
- - name : copy global.xml
-   template : src=global.xml.j2 dest=/root/ambari-install/global.xml mode=0644
+ - name : copy global.json
+   template : src=global.json.j2 dest=/root/ambari-install/global.json mode=0644
 
- - name : copy hadoop-policy.xml
-   copy : src=hadoop-policy.xml dest=/root/ambari-install/hadoop-policy.xml mode=0644
+ - name : copy hadoop-policy.json
+   copy : src=hadoop-policy.json dest=/root/ambari-install/hadoop-policy.json mode=0644
 
  - name : copy install hdfs
    template : src=install-hdfs.sh.j2 dest=/root/ambari-install/install-hdfs.sh mode=0755
