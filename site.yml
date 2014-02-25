@@ -8,9 +8,9 @@
   user : root
   roles:
    - ambari-server
-   - hdfs-common
-   - yarn-common
-   - mr-common
+   - hdfs
+   - yarn
+   - mapreduce2
 
 - hosts: namenode
   user : root
