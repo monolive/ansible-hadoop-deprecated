@@ -1,0 +1,2 @@
+- name: restart ambari-server
+  service: name=ambari-server state=restarted

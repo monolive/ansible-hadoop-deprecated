@@ -10,12 +10,10 @@
 
  - name : configure ambari-server
    command : creates=/root/ambari-install/ansible.done ambari-server setup -j /usr/java/default -s
+   notify : restart ambari-server
 
  - name : Copy jdk 6u31
    copy : src=jdk-6u31-linux-x64.bin dest=/var/lib/ambari-server/resources/jdk-6u31-linux-x64.bin
-
- - name : start ambari-server
-   service : name=ambari-server state=started enabled=yes
 
  - name : copy script
    template : src=create-cluster.sh.j2 dest=/root/ambari-install/create-cluster.sh mode=0755
