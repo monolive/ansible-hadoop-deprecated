@@ -17,7 +17,7 @@
 
 # Apply configuration
 cd /root/ambari-install
-/root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} yarn-site yarn-site.json
+#/root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} yarn-site yarn-site.json
 /root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} capacity-scheduler capacity-scheduler.json
 
 #Start the installation
