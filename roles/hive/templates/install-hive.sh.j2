@@ -22,7 +22,8 @@
 {% endfor %}
 
 # Push configuration
-/root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} core-site /root/ambari-install/hive-site.json
+cd /root/ambari-install
+/root/ambari-install/configs.sh set {{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} {{ hdp['CLUSTERNAME']}} hive-site hive-site.json
 
 # Start the installation
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install HIVE"}, "Body":{"ServiceInfo": {"state":"INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/HIVE
