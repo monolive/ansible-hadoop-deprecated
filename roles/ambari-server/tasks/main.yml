@@ -12,6 +12,11 @@
    command : creates=/root/ambari-install/ansible.done ambari-server setup -j /usr/java/default -s
    notify : restart ambari-server
 
+ - name : configure local repo
+   template : src=repoinfo.xml.j2 dest=/var/lib/ambari-server/resources/stacks/HDP/{{ hdp['HDP_VERSION'] }}/repos/repoinfo.xml 
+   when : repository.local_repo
+   notify : restart ambari-server
+
  - name : Copy jdk 6u31
    copy : src=jdk-6u31-linux-x64.bin dest=/var/lib/ambari-server/resources/jdk-6u31-linux-x64.bin
 

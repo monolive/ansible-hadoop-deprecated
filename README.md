@@ -1,7 +1,7 @@
 ansible-hadoop
 ==============
 
-Ansible Playbook to install HDP. 
+Ansible Playbook to install HDP. It should work on RHEL6, OEL6 and CentOS6. It has been tested on CentOS6
 
 1- Edit hosts file to define cluster
 

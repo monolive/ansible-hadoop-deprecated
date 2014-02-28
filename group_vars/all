@@ -65,7 +65,7 @@ hdp:
       #
 
       # Cluster version, should be of the form : 1.3.3 or 2.0.6
-      HDP_VERSION : HDP-2.0.6
+      HDP_VERSION : 2.0.6
 
       # Cluster Name
       CLUSTERNAME : hortonworks
@@ -90,8 +90,17 @@ hdp:
 
 nagios:
       # 
-      # NAgios config
+      # Nagios config
       #
       nagios_contact : orenault@hortonworks.com
       nagios_web_login : nagiosadmin
       nagios_web_password : admin
+
+repository:
+      # 
+      # If using local repository, you need to fill the information below
+      #
+      local_repo : True
+      baseurl : http://192.168.33.80/pub/HDP/2.0.6.0/
+      hdp_utils_baseurl : http://192.168.33.80/pub/HDP-UTILS/1.1.0.16/
+      ambari_baseurl : http://192.168.33.80/pub/ambari/1.4.1.25
