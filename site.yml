@@ -17,3 +17,4 @@
    - hcatalog
    - zookeeper
    - hbase
+   - pig
