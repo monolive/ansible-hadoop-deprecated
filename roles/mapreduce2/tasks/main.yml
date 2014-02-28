@@ -2,5 +2,8 @@
  - name : copy mapred-site.json
    template : src=mapred-site.json.j2 dest=/root/ambari-install/mapred-site.json mode=0644
 
- - name : copy install hdfs
+ - name : copy install mapred
    template : src=install-mapred.sh.j2 dest=/root/ambari-install/install-mapred.sh mode=0755
+
+ - name : run install mapred
+   command : creates=/root/ambari-install/install-mapred.done /root/ambari-install/install-mapred.sh

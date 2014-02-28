@@ -7,3 +7,6 @@
 
  - name : copy install yarn
    template : src=install-yarn.sh.j2 dest=/root/ambari-install/install-yarn.sh mode=0755
+
+ - name : run install yarn
+   command : creates=/root/ambari-install/install-yarn.done /root/ambari-install/install-yarn.sh

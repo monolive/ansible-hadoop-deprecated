@@ -1,6 +1,9 @@
 --- 
- - name : copy hive-site.json
-   template : src=hive-site.json.j2 dest=/root/ambari-install/hive-site.json mode=0644
+ - name : copy oozie-site.json
+   template : src=oozie-site.json.j2 dest=/root/ambari-install/oozie-site.json mode=0644
 
- - name : copy install hive
-   template : src=install-hive.sh.j2 dest=/root/ambari-install/install-hive.sh mode=0755
+ - name : copy install oozie
+   template : src=install-oozie.sh.j2 dest=/root/ambari-install/install-oozie.sh mode=0755
+
+ - name : run install oozie
+   command : creates=/root/ambari-install/install-oozie.done /root/ambari-install/install-oozie.sh
