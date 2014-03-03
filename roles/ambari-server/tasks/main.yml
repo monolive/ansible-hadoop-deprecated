@@ -13,12 +13,10 @@
 
  - name : check if ambari-server is installed
    wait_for : path=/tmp/output search_regex="completed successfully"
-#   notify : restart ambari-server
 
  - name : configure local repo
    template : src=repoinfo.xml.j2 dest=/var/lib/ambari-server/resources/stacks/HDP/{{ hdp['HDP_VERSION'] }}/repos/repoinfo.xml 
    when : repository.local_repo
-#   notify : restart ambari-server
 
  - name : restart ambari-server
    service : name=ambari-server state=started
