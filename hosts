@@ -24,7 +24,7 @@ node1.ambari.hdp
 node2.ambari.hdp
 node3.ambari.hdp
 
-# Hive server will also run metastore and mysql server
+# Hive server will also run metastore and mysql server / webhcat / hcatalog
 [hive]
 node1.ambari.hdp
 
