@@ -13,9 +13,10 @@
    - mapreduce2
    - ganglia
    - nagios
-   - hive
-   - hcatalog
    - zookeeper
-   - hbase
-   - pig
-   - webhcat
+   - hive
+#   - hcatalog
+#   - hbase
+#   - pig
+#   - webhcat
+   - finish-and-start

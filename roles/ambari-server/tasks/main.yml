@@ -18,8 +18,12 @@
    template : src=repoinfo.xml.j2 dest=/var/lib/ambari-server/resources/stacks/HDP/{{ hdp['HDP_VERSION'] }}/repos/repoinfo.xml 
    when : repository.local_repo
 
- - name : restart ambari-server
-   service : name=ambari-server state=started
+ - name : start ambari server
+   service : name=ambari-server state=restarted
+   # command : /usr/sbin/ambari-server start creates=/root/ambari-install/ambari-server.run chdir=/usr/sbin 
+#   shell : /usr/sbin/ambari-server start creates=/root/ambari-install/ambari-server.run
+#   register : result
+#   until : result.stdout.find("completed successfully") == 1
 
  - name : check if ambari-server is up
    wait_for : host={{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} port=8080 delay=10
