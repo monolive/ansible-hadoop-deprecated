@@ -9,3 +9,5 @@ sleep 20
 {% for host in groups['all'] %}
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME'] }}/hosts/{{ hostvars[host]['ansible_fqdn'] }} >> /root/ambari-install/create-cluster.log
 {% endfor %}
+
+/usr/bin/curl -i -u admin:admin -H "X-Requested-By: ambari" -X POST -d '{ "CLUSTER_CURRENT_STATUS": "{\"clusterState\":\"CLUSTER_STARTED_5\"}" }' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/persist
