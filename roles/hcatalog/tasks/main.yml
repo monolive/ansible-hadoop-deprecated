@@ -3,4 +3,4 @@
    template : src=install-hcatalog.sh.j2 dest=/root/ambari-install/install-hcatalog.sh mode=0755
 
  - name : run install hcatalog
-   command : creates=/root/ambari-install/install-hcatalog.done /root/ambari-install/install-hcatalog.sh
+   command : /root/ambari-install/install-hcatalog.sh creates=/root/ambari-install/install-hcatalog.done shell=/bin/bash

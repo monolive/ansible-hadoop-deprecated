@@ -3,4 +3,4 @@
    template : src=finish-start.sh.j2 dest=/root/ambari-install/finish-start.sh mode=0755
 
  - name : run install hdfs
-   command : creates=/root/ambari-install/finish-start.done /root/ambari-install/finish-start.sh
+   command : /root/ambari-install/finish-start.sh creates=/root/ambari-install/finish-start.done shell=/bin/bash

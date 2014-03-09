@@ -6,4 +6,4 @@
    template : src=install-mapred.sh.j2 dest=/root/ambari-install/install-mapred.sh mode=0755
 
  - name : run install mapred
-   command : creates=/root/ambari-install/install-mapred.done /root/ambari-install/install-mapred.sh
+   command : /root/ambari-install/install-mapred.sh creates=/root/ambari-install/install-mapred.done shell=/bin/bash

@@ -8,6 +8,9 @@
  - name : Copy configs.sh
    copy : src=configs.sh dest=/root/ambari-install/configs.sh mode=0755
 
+ - name : Copy cluster-install.sh
+   copy : src=cluster-install.sh dest=/root/ambari-install/cluster-install.sh mode=0755
+
  - name : configure ambari-server
    shell : creates=/root/ambari-install/ansible.done ambari-server setup -j /usr/java/default -s > /tmp/output
 
@@ -35,4 +38,4 @@
    template : src=create-cluster.sh.j2 dest=/root/ambari-install/create-cluster.sh mode=0755
 
  - name : create cluster
-   command : creates=/root/ambari-install/create-cluster.done /root/ambari-install/create-cluster.sh
+   command : /root/ambari-install/create-cluster.sh creates=/root/ambari-install/create-cluster.done shell=/bin/bash

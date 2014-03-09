@@ -6,13 +6,13 @@ node1.ambari.hdp
 node1.ambari.hdp
 
 [secondary_namenode]
-node2.ambari.hdp
+node1.ambari.hdp
 
 [resourcemanager]
-node3.ambari.hdp
+node1.ambari.hdp
 
 [historyserver]
-node3.ambari.hdp
+node1.ambari.hdp
 
 [datanode]
 node1.ambari.hdp
@@ -32,7 +32,7 @@ node1.ambari.hdp
 node1.ambari.hdp
 
 [client]
-node1.ambari.hdp
+node3.ambari.hdp
 
 [hbase_master]
 node1.ambari.hdp

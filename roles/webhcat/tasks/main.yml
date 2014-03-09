@@ -6,4 +6,4 @@
    template : src=webhcat-site.json.j2 dest=/root/ambari-install/webhcat-site.json mode=0644
 
  - name : run install webhcat
-   command : creates=/root/ambari-install/install-webhcat.done /root/ambari-install/install-webhcat.sh
+   command : /root/ambari-install/install-webhcat.sh creates=/root/ambari-install/install-webhcat.done shell=/bin/bash

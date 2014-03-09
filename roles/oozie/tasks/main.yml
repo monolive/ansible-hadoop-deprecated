@@ -6,4 +6,4 @@
    template : src=install-oozie.sh.j2 dest=/root/ambari-install/install-oozie.sh mode=0755
 
  - name : run install oozie
-   command : creates=/root/ambari-install/install-oozie.done /root/ambari-install/install-oozie.sh
+   command : /root/ambari-install/install-oozie.sh creates=/root/ambari-install/install-oozie.done shell=/bin/bash

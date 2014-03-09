@@ -15,4 +15,4 @@
    template : src=install-hdfs.sh.j2 dest=/root/ambari-install/install-hdfs.sh mode=0755
 
  - name : run install hdfs
-   command : creates=/root/ambari-install/install-hdfs.done /root/ambari-install/install-hdfs.sh
+   shell: /root/ambari-install/install-hdfs.sh creates=/root/ambari-install/install-hdfs.done shell=/bin/bash

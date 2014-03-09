@@ -3,4 +3,4 @@
    template : src=install-zookeeper.sh.j2 dest=/root/ambari-install/install-zookeeper.sh mode=0755
 
  - name : run install zookeeper
-   command : creates=/root/ambari-install/install-zookeeper.done /root/ambari-install/install-zookeeper.sh
+   command : /root/ambari-install/install-zookeeper.sh creates=/root/ambari-install/install-zookeeper.done shell=/bin/bash

@@ -3,4 +3,4 @@
    template : src=install-hbase.sh.j2 dest=/root/ambari-install/install-hbase.sh mode=0755
 
  - name : run install hbase
-   command : creates=/root/ambari-install/install-hbase.done /root/ambari-install/install-hbase.sh
+   command : /root/ambari-install/install-hbase.sh creates=/root/ambari-install/install-hbase.done shell=/bin/bash
