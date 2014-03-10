@@ -17,4 +17,4 @@
 {% endfor %}
 
 # Start the installation
-/usr/bin/curl -u admin:admin -H \"X-Requested-By: ambari\" -X PUT -d '{\"RequestInfo\":{\"context\":\"Install GANGLIA\"}, \"Body\":{\"ServiceInfo\": {\"state\":\"INSTALLED\"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/GANGLIA >> /root/ambari-install/install-ganglia.log
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install GANGLIA"}, "Body":{"ServiceInfo": {"state":"INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/GANGLIA >> /root/ambari-install/install-ganglia.log

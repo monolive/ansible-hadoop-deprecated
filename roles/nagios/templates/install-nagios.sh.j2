@@ -9,4 +9,4 @@
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"HostRoles": {"state": "INSTALLED"}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}/host_components/NAGIOS_SERVER >> /root/ambari-install/install-nagios.log
 
 # Start the installation
-/usr/bin/curl -u admin:admin -H \"X-Requested-By: ambari\" -X PUT -d '{\"RequestInfo\":{\"context\":\"Install NAGIOS\"}, \"Body\":{\"ServiceInfo\": {\"state\":\"INSTALLED\"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/NAGIOS >> /root/ambari-install/install-nagios.log
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install NAGIOS"}, "Body":{"ServiceInfo": {"state":"INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/NAGIOS >> /root/ambari-install/install-nagios.log
