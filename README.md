@@ -11,4 +11,17 @@ Ansible Playbook to install HDP. It should work on RHEL6, OEL6 and CentOS6. It h
 
 Everything should be installed, but services won't be started. You will need to connect to ambari webui on port 8080 to start services manually
 
+NB :
+Following the installation, you can find all scripts + logfiles in /root/ambari-install
+
+Hive server will also run 
+ - metastore
+ - mysql server
+ - webhcat
+ - hcatalog
+
+Ambari Server will run 
+ - ganglia
+ - nagios
+
 TODO : make the service start following the installation
