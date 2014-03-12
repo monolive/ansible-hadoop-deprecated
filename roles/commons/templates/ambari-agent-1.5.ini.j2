@@ -13,7 +13,7 @@
 # See the License for the specific
 
 [server]
-% for host in groups['ambari_server'] %}
+{% for host in groups['ambari_server'] %}
 # something that applies to all app servers.
 hostname={{ hostvars[host]['ansible_fqdn'] }}
 {% endfor %}
