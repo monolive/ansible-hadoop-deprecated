@@ -7,14 +7,14 @@
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/ZOOKEEPER/components/ZOOKEEPER_SERVER >> /root/ambari-install/install-zookeeper.log
 {% for host in groups['zookeeper'] %}
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/ZOOKEEPER_SERVER >> /root/ambari-install/install-zookeeper.log
-/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"HostRoles": {"state": "INSTALLED"}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/ZOOKEEPER_SERVER >> /root/ambari-install/install-zookeeper.log
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install ZK SERVER"}, "Body":{"HostRoles": {"state": "INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/ZOOKEEPER_SERVER >> /root/ambari-install/install-zookeeper.log
 {% endfor %}
 
 # Define ZOOKEEPER Client
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/services/ZOOKEEPER/components/ZOOKEEPER_CLIENT >> /root/ambari-install/install-zookeeper.log
 {% for host in groups['client'] %}
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X POST http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/ZOOKEEPER_CLIENT >> /root/ambari-install/install-zookeeper.log
-/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"HostRoles": {"state": "INSTALLED"}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/ZOOKEEPER_CLIENT >> /root/ambari-install/install-zookeeper.log
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"RequestInfo":{"context":"Install ZK CLIENT"}, "Body":{"HostRoles": {"state": "INSTALLED"}}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/clusters/{{ hdp['CLUSTERNAME']}}/hosts/{{ hostvars[host]['ansible_fqdn'] }}/host_components/ZOOKEEPER_CLIENT >> /root/ambari-install/install-zookeeper.log
 {% endfor %}
 
 # Start the installation
