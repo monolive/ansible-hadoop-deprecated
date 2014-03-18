@@ -103,4 +103,4 @@ repository:
       local_repo : True
       baseurl : http://192.168.33.80/pub/HDP/2.0.6.0/
       hdp_utils_baseurl : http://192.168.33.80/pub/HDP-UTILS/1.1.0.16/
-      ambari_baseurl : http://192.168.33.80/pub/AMBARI.dev-1.x/noarch/
+      ambari_baseurl : http://192.168.33.80/pub/ambari/1.5.0.70
