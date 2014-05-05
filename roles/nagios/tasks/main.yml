@@ -1,6 +1,0 @@
---- 
- - name : copy install nagios
-   template : src=install-nagios.sh.j2 dest=/root/ambari-install/install-nagios.sh mode=0755
-
- - name : run install nagios
-   command : /root/ambari-install/install-nagios.sh creates=/root/ambari-install/install-nagios.done shell=/bin/bash

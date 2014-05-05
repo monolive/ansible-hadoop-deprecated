@@ -1,6 +1,0 @@
---- 
- - name : copy install ganglia
-   template : src=install-ganglia.sh.j2 dest=/root/ambari-install/install-ganglia.sh mode=0755
-
- - name : run install ganglia
-   command : /root/ambari-install/install-ganglia.sh creates=/root/ambari-install/install-ganglia.done shell=/bin/bash

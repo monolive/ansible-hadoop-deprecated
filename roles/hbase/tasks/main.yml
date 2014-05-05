@@ -1,9 +1,0 @@
---- 
- - name : copy hbase-site.json
-   template : src=hbase-site.json.j2 dest=/root/ambari-install/hbase-site.json mode=0644
-
- - name : copy install hbase
-   template : src=install-hbase.sh.j2 dest=/root/ambari-install/install-hbase.sh mode=0755
-
- - name : run install hbase
-   command : /root/ambari-install/install-hbase.sh creates=/root/ambari-install/install-hbase.done shell=/bin/bash

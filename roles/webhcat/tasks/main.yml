@@ -1,9 +1,0 @@
---- 
- - name : copy install webhcat
-   template : src=install-webhcat.sh.j2 dest=/root/ambari-install/install-webhcat.sh mode=0755
-
- - name : copy webhcat-site.json
-   template : src=webhcat-site.json.j2 dest=/root/ambari-install/webhcat-site.json mode=0644
-
- - name : run install webhcat
-   command : /root/ambari-install/install-webhcat.sh creates=/root/ambari-install/install-webhcat.done shell=/bin/bash
