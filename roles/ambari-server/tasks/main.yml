@@ -28,9 +28,6 @@
  - name : check if ambari-server is up
    wait_for : host={{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} port=8080 delay=10
 
- - name : Copy jdk 6u31
-   copy : src=jdk-6u31-linux-x64.bin dest=/var/lib/ambari-server/resources/jdk-6u31-linux-x64.bin
-
  - name : copy script
    template : src=create-cluster.sh.j2 dest=/root/ambari-install/create-cluster.sh mode=0755
 
