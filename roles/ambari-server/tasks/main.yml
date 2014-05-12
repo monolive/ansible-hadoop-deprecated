@@ -20,7 +20,7 @@
 
  - name : start ambari server
    service : name=ambari-server state=restarted
-   # command : /usr/sbin/ambari-server start creates=/root/ambari-install/ambari-server.run chdir=/usr/sbin 
+#   command : /usr/sbin/ambari-server start creates=/root/ambari-install/ambari-server.run chdir=/usr/sbin 
 #   shell : /usr/sbin/ambari-server start creates=/root/ambari-install/ambari-server.run
 #   register : result
 #   until : result.stdout.find("completed successfully") == 1
@@ -28,8 +28,8 @@
  - name : check if ambari-server is up
    wait_for : host={{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} port=8080 delay=10
 
- - name : copy script
-   template : src=create-cluster.sh.j2 dest=/root/ambari-install/create-cluster.sh mode=0755
+# - name : copy script
+#   template : src=create-cluster.sh.j2 dest=/root/ambari-install/create-cluster.sh mode=0755
 
- - name : create cluster
-   command : /root/ambari-install/create-cluster.sh creates=/root/ambari-install/create-cluster.done shell=/bin/bash
+# - name : create cluster
+#   command : /root/ambari-install/create-cluster.sh creates=/root/ambari-install/create-cluster.done shell=/bin/bash
