@@ -1,7 +1,7 @@
 #!/bin/bash
 
 os={{ansible_distribution}}{{ansible_distribution_version}}
-owlower=`echo $os  | awk -F"." '{print tolower($1)}'`
+oslower=`echo $os  | awk -F"." '{print tolower($1)}'`
 # Define cluster
 /usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"Repositories":{"base_url" : "{{ repository['baseurl'] }}"}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/stacks/HDP/versions/{{ hdp['HDP_VERSION'] }}/operatingSystems/${oslower}/repositories/HDP-{{ hdp['HDP_VERSION'] }}
 sleep 5
