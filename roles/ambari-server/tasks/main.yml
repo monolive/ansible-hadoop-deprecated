@@ -32,3 +32,7 @@
    service : name=ambari-server state=restarted
    when : repository.local_repo
 
+ - name : check if ambari-server is up for local repo
+   wait_for : host={{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} port=8080 delay=10
+   when : repository.local_repo
+
