@@ -101,6 +101,6 @@ repository:
       # If using local repository, you need to fill the information below
       #
       local_repo : True
-      baseurl : http://192.168.33.80/pub/HDP/HDP-2.1.2.0
+      baseurl : http://192.168.33.80/pub/HDP-2.1.2.0
       hdp_utils_baseurl : http://192.168.33.80/pub/HDP-UTILS-1.1.0.17
       ambari_baseurl : http://192.168.33.80/pub/Updates-ambari-1.5.1
