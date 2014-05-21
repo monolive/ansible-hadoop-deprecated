@@ -18,6 +18,7 @@ node1.ambari.hdp
 node1.ambari.hdp
 node2.ambari.hdp
 node3.ambari.hdp
+node4.ambari.hdp
 
 [zookeeper]
 node1.ambari.hdp
@@ -41,3 +42,4 @@ node1.ambari.hdp
 node1.ambari.hdp
 node2.ambari.hdp
 node3.ambari.hdp
+node4.ambari.hdp
