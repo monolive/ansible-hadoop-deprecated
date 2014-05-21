@@ -8,21 +8,3 @@
  - name : configure local repository
    template : src=ambari.repo.j2 dest=/etc/yum.repos.d/ambari.repo
    when : repository.local_repo
-
- - name : install ambari-agent
-   yum : name=ambari-agent
-
- - name : check ambari-version
-   command : rpm -q --qf '%{VERSION}' ambari-agent
-   register : results
-
- - name : configure ambari-agent-1.5
-   template : src=ambari-agent-1.5.ini.j2 dest=/etc/ambari-agent/conf/ambari-agent.ini
-   when : results > 1.5
-
- - name : configure ambari-agent-1.4
-   template : src=ambari-agent-1.4.ini.j2 dest=/etc/ambari-agent/conf/ambari-agent.ini
-   when : results < 1.5
-
- - name : start ambari-agent
-   service : name=ambari-agent state=started enabled=yes

@@ -8,3 +8,8 @@
   user : root
   roles:
    - ambari-server
+
+- hosts: all
+  user : root
+  roles:
+   - ambari-agent
