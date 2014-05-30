@@ -14,9 +14,9 @@
  - name : check if ambari-server is installed
    wait_for : path=/tmp/output search_regex="completed successfully"
 
- - name : modify repo def
-   template : src=repoinfo.xml.2.1.j2 dest=/var/lib/ambari-server/resources/stacks/HDP/2.1/repos/repoinfo.xml mode=0644
-   when : repository.local_repo
+# - name : modify repo def
+#   template : src=repoinfo.xml.2.1.j2 dest=/var/lib/ambari-server/resources/stacks/HDP/2.1/repos/repoinfo.xml mode=0644
+#   when : repository.local_repo
 
  - name : start ambari server
    service : name=ambari-server state=restarted
@@ -24,13 +24,13 @@
  - name : check if ambari-server is up
    wait_for : host={{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }} port=8080 delay=10
 
-# - name : modify repo script
-#   template : src=modify-repo.sh.j2 dest=/root/ambari-install/modify-repo.sh mode=0755
-#   when : repository.local_repo
+ - name : modify repo script
+   template : src=modify-repo.sh.j2 dest=/root/ambari-install/modify-repo.sh mode=0755
+   when : repository.local_repo
 
-# - name : Modify repository
-#   command : /root/ambari-install/modify-repo.sh
-#   when : repository.local_repo
+ - name : Run Modify repository
+   command : /root/ambari-install/modify-repo.sh
+   when : repository.local_repo
 
 # - name : start ambari server for local repo
 #   service : name=ambari-server state=restarted
