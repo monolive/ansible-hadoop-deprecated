@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Todo: add a proper check to get the OS, eg if centos6 or rhel6 then rhel6
+# os={{ansible_distribution}}{{ansible_distribution_version}}
+# oslower=`echo $os  | awk -F"." '{print tolower($1)}'`
+# Define cluster
+/usr/bin/curl -u admin:admin -H "X-Requested-By: ambari" -X PUT -d '{"Repositories":{"base_url" : "{{ repository['baseurl'] }}"}}' http://{{ hostvars[groups['ambari_server'][0]]['ansible_fqdn'] }}:8080/api/v1/stacks/HDP/versions/{{ hdp['HDP_VERSION'] }}/operating_systems/redhat6/repositories/HDP-{{ hdp['HDP_VERSION'] }}
+sleep 5

@@ -8,14 +8,8 @@
   user : root
   roles:
    - ambari-server
-   - hdfs
-   - yarn
-   - mapreduce2
-   - ganglia
-   - nagios
-   - zookeeper
-   - hive
-   - hcatalog
-   - hbase
-   - pig
-   - webhcat
+
+- hosts: all
+  user : root
+  roles:
+   - ambari-agent

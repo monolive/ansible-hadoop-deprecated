@@ -1,9 +1,0 @@
---- 
- - name : copy hive-site.json
-   template : src=hive-site.json.j2 dest=/root/ambari-install/hive-site.json mode=0644
-
- - name : copy install hive
-   template : src=install-hive.sh.j2 dest=/root/ambari-install/install-hive.sh mode=0755
-
- - name : run install hive
-   command : /root/ambari-install/install-hive.sh creates=/root/ambari-install/install-hive.done shell=/bin/bash

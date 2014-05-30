@@ -1,6 +1,0 @@
---- 
- - name : copy install pig
-   template : src=install-pig.sh.j2 dest=/root/ambari-install/install-pig.sh mode=0755
-
- - name : run install pig
-   command : /root/ambari-install/install-pig.sh creates=/root/ambari-install/install-pig.done shell=/bin/bash
