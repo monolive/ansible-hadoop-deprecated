@@ -17,3 +17,6 @@
 
  - name : start ambari-agent
    service : name=ambari-agent state=started enabled=yes
+
+ - name : wait for agent to register
+   command : sleep 10
