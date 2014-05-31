@@ -7,7 +7,7 @@ node3.ambari.hdp
 [master1]
 node1.ambari.hdp
 
-# Master2 runs resourcemanager, historyserver, oozie, ZK
+# Master2 runs resourcemanager, historyserver, oozie, ZK, secondary namenode
 [master2]
 node2.ambari.hdp
 
