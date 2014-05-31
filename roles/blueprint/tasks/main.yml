@@ -1,0 +1,9 @@
+--- 
+ - name : copy hosts_map to ambari-server
+   template : src=hosts-map.json.j2 dest=/root/ambari-install/hosts-map.json
+
+ - name : copy stack definition to ambari-server
+   template : src=multi-nodes-hdp.json.j2 dest=/root/ambari-install/multi-nodes-hdp.json
+
+ - name : Copy blueprint push
+   template : src=PushBlueprint.py.j2 dest=/root/ambari-install/PushBlueprint.py mode=0755
