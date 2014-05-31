@@ -63,7 +63,7 @@ hdp:
       #
       # Cluster def and config
       #
-
+      default_password : hadoop
       # Cluster version, should be of the form : 1.3.3 or 2.0.6
       HDP_VERSION : 2.1
 
