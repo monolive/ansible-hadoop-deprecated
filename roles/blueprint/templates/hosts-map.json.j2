@@ -32,7 +32,9 @@
       {% for host in groups['slaves'] %}
         {
           "fqdn" : "{{ hostvars[host]['ansible_fqdn'] }}"
-        },
+        }{% if not loop.last %}
+  	,
+	{% endif %}
       {% endfor %}
       ]
     }

@@ -7,3 +7,12 @@
 
  - name : Copy blueprint push
    template : src=PushBlueprint.py.j2 dest=/root/ambari-install/PushBlueprint.py mode=0755
+
+ - name : Copy extra repos
+   copy : src=extra.repo dest=/etc/yum.repos.d/extra.repo mode=0644
+
+ - name : Install python-requests
+   yum  : name=python-requests
+
+ - name : Launch blueprint
+   shell : /root/ambari-install/PushBlueprint.py
