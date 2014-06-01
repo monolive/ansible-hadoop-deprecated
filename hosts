@@ -1,45 +1,17 @@
-# Ambari server will also run Ganglia and Nagios servers
+# NB: The hosts_map is using the variable from this file.
+# Ambari server will also run Ganglia and Nagios servers + ZK
 [ambari_server]
-node1.ambari.hdp
-
-[namenode]
-node1.ambari.hdp
-
-[secondary_namenode]
-node1.ambari.hdp
-
-[resourcemanager]
-node1.ambari.hdp
-
-[historyserver]
-node1.ambari.hdp
-
-[datanode]
-node1.ambari.hdp
-node2.ambari.hdp
 node3.ambari.hdp
+
+# Master1 runs Namenode, Hive server will also run metastore and mysql server / webhcat / hcatalog, ZK 
+[master1]
+node1.ambari.hdp
+
+# Master2 runs resourcemanager, historyserver, oozie, ZK, secondary namenode
+[master2]
+node2.ambari.hdp
+
+[slaves]
 node4.ambari.hdp
-
-[zookeeper]
-node1.ambari.hdp
-node2.ambari.hdp
-node3.ambari.hdp
-
-# Hive server will also run metastore and mysql server / webhcat / hcatalog
-[hive]
-node1.ambari.hdp
-
-[oozie]
-node1.ambari.hdp
-
-[client]
-node3.ambari.hdp
-
-[hbase_master]
-node1.ambari.hdp
-
-[hbase_regionserver]
-node1.ambari.hdp
-node2.ambari.hdp
-node3.ambari.hdp
-node4.ambari.hdp
+node5.ambari.hdp
+node6.ambari.hdp

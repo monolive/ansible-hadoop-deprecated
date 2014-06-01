@@ -1,0 +1,90 @@
+{
+  "host_groups" : [
+    {
+      "name" : "ambari",
+      "configurations" : [
+        {
+          "global" : {
+            "nagios_contact": "{{ nagios['nagios_contact'] }}"
+          }
+        }
+      ],
+      "components" : [
+        {
+          "name" : "NAGIOS_SERVER"
+        },
+        {
+          "name" : "GANGLIA_SERVER"
+        },
+        {
+          "name" : "ZOOKEEPER_SERVER"
+        }
+      ],
+      "cardinality" : "1"
+    },
+    {
+      "name" : "master1",
+      "components" : [
+        {
+          "name" : "NAMENODE"
+        },
+        {
+          "name" : "HIVE_SERVER"
+        },        
+        {
+          "name" : "MYSQL_SERVER"
+        },        
+        {
+          "name" : "ZOOKEEPER_SERVER"
+        }        
+      ],
+      "cardinality" : "2"
+    },
+    {
+      "name" : "master2",
+      "components" : [
+        {
+          "name" : "SECONDARY_NAMENODE"
+        },       
+        {
+          "name" : "RESOURCEMANAGER"
+        },
+        {
+          "name" : "HISTORYSERVER"
+        },        
+        {
+          "name" : "ZOOKEEPER_SERVER"
+        }        
+      ],
+      "cardinality" : "3"
+    },    
+    {
+      "name" : "slaves",
+      "components" : [
+        {
+          "name" : "DATANODE"
+        },
+        {
+          "name" : "HDFS_CLIENT"
+        },
+        {
+          "name" : "NODEMANAGER"
+        },
+        {
+          "name" : "YARN_CLIENT"
+        },
+        {
+          "name" : "MAPREDUCE2_CLIENT"
+        },
+        {
+          "name" : "ZOOKEEPER_CLIENT"
+        }
+      ],
+      "cardinality" : "4"
+    }
+  ],
+  "Blueprints" : {
+    "stack_name" : "HDP",
+    "stack_version" : "{{ hdp['HDP_VERSION'] }}"
+  }
+}

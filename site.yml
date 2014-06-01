@@ -13,3 +13,9 @@
   user : root
   roles:
    - ambari-agent
+
+- hosts: ambari_server
+  user : root
+  roles:
+   - blueprint
+
