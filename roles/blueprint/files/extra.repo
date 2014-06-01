@@ -1,0 +1,6 @@
+[extras]
+name=Extras Cent0S6
+baseurl=http://192.168.33.80/pub/extras
+gpgcheck=0
+enabled=1
+priority=1
