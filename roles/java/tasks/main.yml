@@ -1,0 +1,21 @@
+---
+- name : copy jdk
+  copy : src=jdk-{{ java_version }}-linux-x64.rpm dest=/tmp/jdk-{{ java_version }}-linux-x64.rpm mode=0644 force=no
+  register: jdk_copied
+
+- name: Install JDK RPM package
+  yum: name=/tmp/jdk-{{ java_version }}-linux-x64.rpm state=present
+  register: jdk_installed
+  when: jdk_copied|changed
+
+- name: Set java link by latest
+  command: alternatives --install /usr/bin/java java /usr/java/latest/bin/java 200000
+  when: jdk_installed|changed
+
+- name: Set jar link by latest
+  command: alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 200000
+  when: jdk_installed|changed
+
+- name: Update profile JDK / JRE
+  copy: src=java.sh dest=/etc/profile.d/java.sh
+  when: jdk_installed|changed
