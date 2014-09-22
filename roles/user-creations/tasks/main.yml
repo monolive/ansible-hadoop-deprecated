@@ -1,0 +1,36 @@
+--- 
+   # name add hadoop group
+   - group: name={{ HADOOP_GROUP }} gid={{ HADOOP_GID }} state=present
+   
+   # name add hdfs user
+   - user: name={{ HDFS_USER }} uid={{ HDFS_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ YARN_USER }} uid={{ YARN_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ MAPRED_USER }} uid={{ MAPRED_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ HIVE_USER }} uid={{ HIVE_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ HCAT_USER }} uid={{ HCAT_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ ZOOKEEPER_USER }} uid={{ ZOOKEEPER_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ OOZIE_USER }} uid={{ OOZIE_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ SQOOP_USER }} uid={{ SQOOP_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ HBASE_USER }} uid={{ HBASE_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ AMBARIQA_USER }} uid={{ AMBARIQA_UID }} group=hadoop state=present
+   
+   # name add hdfs user
+   - user: name={{ NAGIOS_USER }} uid={{ NAGIOS_UID }} state=present
