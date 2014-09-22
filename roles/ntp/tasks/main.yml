@@ -1,0 +1,34 @@
+---
+# Install pre-requisite for a RS instance
+  - name : Install requirements for switching off SElinux
+    yum: name=libselinux-python state=present
+
+  - name : Disable SELinux 
+    selinux : state=disabled
+    notify : 
+    - turn it off
+
+  - name : turn off iptables
+    service : name=iptables state=stopped enabled=false
+
+  - name : install ntp
+    yum : name=ntp state=latest
+
+  - name : configure ntp
+    template : src=ntp.conf.j2 dest=/etc/ntp.conf
+    notify : restart ntp
+
+  - name : start ntp
+    service: name=ntpd state=started enabled=true
+
+# Not required but nice to have
+  - name : install screen
+    yum : name=screen state=latest
+  
+# Create Hadoop Directory structure
+  - name : create directories
+    file : dest={{ hdp['dfs_datanode_data_dir'] }} state=directory
+    file : dest={{ hdp['dfs_namenode_checkpoint_dir'] }} state=directory
+    file : dest={{ hdp['dfs_namenode_name_dir'] }} state=directory
+    file : dest={{ hdp['yarn_nodemanager_local_dirs'] }} state=directory
+    file : dest={{ hdp['yarn_nodemanager_log_dirs'] }} state=directory
