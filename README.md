@@ -7,7 +7,14 @@ Ansible Playbook to install HDP. It should work on RHEL6, OEL6 and CentOS6. It h
 
 2- Edit site.yml to select which service you would like to install by adding / removing services
 
-3- Edit groups_var/all to adjust to your settings
+3- Edit variable files in vars folder. 
+
+The following files are mandatory
+ - network_info
+ - repository_info
+
+The following files are optionals
+ - users
 
 Everything should be installed, but services won't be started. You will need to connect to ambari webui on port 8080 to start services manually
 
