@@ -1,0 +1,55 @@
+---
+#
+#               Users and Groups
+#               You don't need to edit it
+#               
+#               Create ahead of installation to garantee uniform UID / GID across the environment
+#
+
+# A common group shared by services.
+HADOOP_GROUP : hadoop
+HADOOP_GID : 1000
+
+#  HDFS service user.
+HDFS_USER : hdfs
+HDFS_UID : 1000
+
+#  YARN service user.
+YARN_USER : yarn
+YARN_UID : 1001
+
+#  MapReduce service user.
+MAPRED_USER : mapred
+MAPRED_UID : 1002
+
+#  Oozie service user.
+OOZIE_USER : oozie
+OOZIE_UID : 1003
+
+#  Hive service user.
+HIVE_USER : hive
+HIVE_UID : 1004
+
+#  HBase service user.
+HBASE_USER : hbase
+HBASE_UID : 1005
+
+#  ZooKeeper service user.
+ZOOKEEPER_USER : zookeeper
+ZOOKEEPER_UID : 1006
+
+# sqoop user
+SQOOP_USER : sqoop
+SQOOP_UID : 1008
+
+# ambari-qa user
+AMBARIQA_USER : ambari-qa
+AMBARIQA_UID : 1009
+
+# nagios user
+NAGIOS_USER : nagios
+NAGIOS_UID : 1010
+
+# hcat user
+HCAT_USER : hcat
+HCAT_UID : 1011

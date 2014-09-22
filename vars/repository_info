@@ -1,0 +1,11 @@
+---
+# 
+# If using local repository, you need to fill the information below
+#
+# Typical URL for Hortonworks Repository are:
+# - http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.19/repos/centos6
+# - http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.1.5.0
+# - http://public-repo-1.hortonworks.com/ambari/centos6/1.x/updates/1.6.1
+baseurl : http://192.168.33.80/pub/HDP-2.1.2.0
+hdp_utils_baseurl : http://192.168.33.80/pub/HDP-UTILS-1.1.0.17
+ambari_baseurl : http://192.168.33.80/pub/ambari
