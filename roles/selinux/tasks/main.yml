@@ -1,0 +1,9 @@
+---
+# Install pre-requisite for a RS instance
+  - name : Install requirements for switching off SElinux
+    yum: name=libselinux-python state=present
+
+  - name : Disable SELinux 
+    selinux : state=disabled
+    notify : 
+    - turn it off
