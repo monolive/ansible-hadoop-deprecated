@@ -1,8 +1,15 @@
 - hosts: all
   user : root
+  var_files:
+   - vars/network_info
+   - vars/users
+   - vars/repository_info
   roles:
+   - selinux
+   - ntp
+   - java
    - prereq
-   - commons
+   - repository
 
 - hosts: ambari_server
   user : root
