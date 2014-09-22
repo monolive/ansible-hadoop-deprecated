@@ -1,0 +1,4 @@
+--- 
+ - name : configure local repository
+   template : src=ambari.repo.j2 dest=/etc/yum.repos.d/ambari.repo
+   when : repository.local_repo
