@@ -1,17 +1,21 @@
 # NB: The hosts_map is using the variable from this file.
-# Ambari server will also run Ganglia and Nagios servers + ZK
 [ambari_server]
-node3.ambari.hdp
+orenault-01
 
 # Master1 runs Namenode, Hive server will also run metastore and mysql server / webhcat / hcatalog, ZK 
-[master1]
-node1.ambari.hdp
+[namenode]
+orenault-02
 
 # Master2 runs resourcemanager, historyserver, oozie, ZK, secondary namenode
-[master2]
-node2.ambari.hdp
+[secondary_namenode]
+orenault-03
 
-[slaves]
-node4.ambari.hdp
-node5.ambari.hdp
-node6.ambari.hdp
+[resource_manager]
+orenault-04
+
+[datanodes]
+orenault-05
+orenault-06
+orenault-07
+orenault-08
+
