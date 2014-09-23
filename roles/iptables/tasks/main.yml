@@ -1,0 +1,4 @@
+---
+# Not required but nice to have
+  - name : stop iptables
+    service: name=iptables state=stopped enabled=no
