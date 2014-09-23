@@ -1,0 +1,8 @@
+---
+nagios:
+      # 
+      # Nagios config
+      #
+      nagios_contact : orenault@hortonworks.com
+      nagios_web_login : nagiosadmin
+      nagios_web_password : admin
